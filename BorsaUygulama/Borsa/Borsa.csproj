@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{183D7B73-51D2-4BA6-B5F4-838F80887B80}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Borsa</RootNamespace>
+    <AssemblyName>Borsa</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AlisIslemleriForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlisIslemleriForm.Designer.cs">
+      <DependentUpon>AlisIslemleriForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BilgiGirisEkrani.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BilgiGirisEkrani.Designer.cs">
+      <DependentUpon>BilgiGirisEkrani.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GirisFormu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GirisFormu.Designer.cs">
+      <DependentUpon>GirisFormu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KayitOlmaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KayitOlmaForm.Designer.cs">
+      <DependentUpon>KayitOlmaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KullaniciIslemleriMenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KullaniciIslemleriMenuForm.Designer.cs">
+      <DependentUpon>KullaniciIslemleriMenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KullaniciManager.cs" />
+    <Compile Include="OnayForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OnayForm.Designer.cs">
+      <DependentUpon>OnayForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SatisIslemleriFormu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SatisIslemleriFormu.Designer.cs">
+      <DependentUpon>SatisIslemleriFormu.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AlisIslemleriForm.resx">
+      <DependentUpon>AlisIslemleriForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BilgiGirisEkrani.resx">
+      <DependentUpon>BilgiGirisEkrani.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GirisFormu.resx">
+      <DependentUpon>GirisFormu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KayitOlmaForm.resx">
+      <DependentUpon>KayitOlmaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KullaniciIslemleriMenuForm.resx">
+      <DependentUpon>KullaniciIslemleriMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OnayForm.resx">
+      <DependentUpon>OnayForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="SatisIslemleriFormu.resx">
+      <DependentUpon>SatisIslemleriFormu.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
