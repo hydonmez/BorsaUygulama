@@ -27,7 +27,7 @@ namespace Borsa
         }
         public Boolean KullaniciAdKontrol(KullaniciTbl kullanici)
         {
-            return false;
+            return true;
         }
     }
 }
