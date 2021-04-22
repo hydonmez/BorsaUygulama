@@ -16,11 +16,30 @@ namespace Borsa
         {
             InitializeComponent();
         }
-
+        GirisIslemleriManager girisislemleri = new GirisIslemleriManager();
+        KullaniciTbl kullanici = new KullaniciTbl();
         private void btnKayitOl_Click(object sender, EventArgs e)
         {
             KayitOlmaForm kayitol = new KayitOlmaForm();
             kayitol.Show();
+        }
+
+        private void btnGiris_Click(object sender, EventArgs e)
+        {
+            kullanici.KullaniciAdi = txtKullaniciAdi.Text;
+            kullanici.KullaniciSifre = txtSifre.Text;
+            girisislemleri.GirisYapKullanici(kullanici);
+        }
+
+        private void btnAdminGiris_Click(object sender, EventArgs e)
+        {
+
+            AdminTbl admin = new AdminTbl();
+            admin.AdmiKullaniciAdi = txtAdminKullaniciAdi.Text;
+            admin.AdminSifre = txtAdminSifre.Text;
+            girisislemleri.GirisYapAdmin(admin);
+
+        
         }
     }
 }

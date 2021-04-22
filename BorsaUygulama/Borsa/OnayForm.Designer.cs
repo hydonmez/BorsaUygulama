@@ -52,6 +52,7 @@ namespace Borsa
             this.btnOnayla.TabIndex = 7;
             this.btnOnayla.Text = "Onayla";
             this.btnOnayla.UseVisualStyleBackColor = true;
+            this.btnOnayla.Click += new System.EventHandler(this.btnOnayla_Click);
             // 
             // dataGridView1
             // 
@@ -71,6 +72,7 @@ namespace Borsa
             this.Controls.Add(this.dataGridView1);
             this.Name = "OnayForm";
             this.Text = "OnayForm";
+            this.Load += new System.EventHandler(this.OnayForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

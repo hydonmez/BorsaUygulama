@@ -29,19 +29,21 @@ namespace Borsa
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtMiktar = new System.Windows.Forms.TextBox();
             this.btnİstek = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbİstek = new System.Windows.Forms.ComboBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtMiktar
             // 
-            this.textBox1.Location = new System.Drawing.Point(122, 48);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 20);
-            this.textBox1.TabIndex = 14;
+            this.txtMiktar.Location = new System.Drawing.Point(122, 48);
+            this.txtMiktar.Name = "txtMiktar";
+            this.txtMiktar.Size = new System.Drawing.Size(121, 20);
+            this.txtMiktar.TabIndex = 14;
             // 
             // btnİstek
             // 
@@ -51,6 +53,7 @@ namespace Borsa
             this.btnİstek.TabIndex = 13;
             this.btnİstek.Text = "Onay Talebinde Bulun";
             this.btnİstek.UseVisualStyleBackColor = true;
+            this.btnİstek.Click += new System.EventHandler(this.btnİstek_Click);
             // 
             // label2
             // 
@@ -82,18 +85,29 @@ namespace Borsa
             this.cmbİstek.Size = new System.Drawing.Size(121, 21);
             this.cmbİstek.TabIndex = 10;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(289, 29);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(586, 225);
+            this.dataGridView1.TabIndex = 15;
+            // 
             // BilgiGirisEkrani
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(430, 239);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(931, 294);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.txtMiktar);
             this.Controls.Add(this.btnİstek);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbİstek);
             this.Name = "BilgiGirisEkrani";
             this.Text = "BilgiGirisEkrani";
+            this.Load += new System.EventHandler(this.BilgiGirisEkrani_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -101,10 +115,11 @@ namespace Borsa
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtMiktar;
         private System.Windows.Forms.Button btnİstek;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbİstek;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

@@ -19,15 +19,26 @@ namespace Borsa
             {
                 veriTabani.KullaniciTbl.Add(kullanici);
                 veriTabani.SaveChanges();
-                MessageBox.Show("kullanici eklendi");
+                
                 return true;
             }
             return false;
-
         }
         public Boolean KullaniciAdKontrol(KullaniciTbl kullanici)
         {
-            return true;
+            
+            var sonuc = from gecici in veriTabani.KullaniciTbl where gecici.KullaniciAdi == kullanici.KullaniciAdi select gecici;
+           
+            if(sonuc.Count()==0)
+            {
+                MessageBox.Show("kullanici eklendi");
+                return true;
+            }
+            else
+            {  
+                MessageBox.Show("Bu kullanici adinda bir kullanici mevcut yeni bir kullanici adi giriniz");
+                return false;
+            }
         }
     }
 }

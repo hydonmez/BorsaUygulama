@@ -79,6 +79,7 @@
     <Compile Include="GirisFormu.Designer.cs">
       <DependentUpon>GirisFormu.cs</DependentUpon>
     </Compile>
+    <Compile Include="GirisIslemleriManager.cs" />
     <Compile Include="KayitOlmaForm.cs">
       <SubType>Form</SubType>
     </Compile>

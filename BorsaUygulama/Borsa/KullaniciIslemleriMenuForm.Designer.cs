@@ -37,12 +37,14 @@ namespace Borsa
             // 
             // button1
             // 
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button1.Location = new System.Drawing.Point(21, 142);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(186, 23);
             this.button1.TabIndex = 11;
             this.button1.Text = "Hesaba Para ve Ürün Yükleme";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -55,12 +57,14 @@ namespace Borsa
             // 
             // btnAlis
             // 
+            this.btnAlis.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnAlis.Location = new System.Drawing.Point(21, 99);
             this.btnAlis.Name = "btnAlis";
             this.btnAlis.Size = new System.Drawing.Size(186, 23);
             this.btnAlis.TabIndex = 9;
             this.btnAlis.Text = "Alış İslemleri";
             this.btnAlis.UseVisualStyleBackColor = true;
+            this.btnAlis.Click += new System.EventHandler(this.btnAlis_Click);
             // 
             // btnSatis
             // 
@@ -70,12 +74,13 @@ namespace Borsa
             this.btnSatis.TabIndex = 8;
             this.btnSatis.Text = "Satis İslemleri";
             this.btnSatis.UseVisualStyleBackColor = true;
+            this.btnSatis.Click += new System.EventHandler(this.btnSatis_Click);
             // 
             // KullaniciIslemleriMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(274, 224);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAlis);

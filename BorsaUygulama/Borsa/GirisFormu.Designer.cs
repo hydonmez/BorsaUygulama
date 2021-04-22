@@ -44,7 +44,6 @@ namespace Borsa
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -73,6 +72,7 @@ namespace Borsa
             this.btnAdminGiris.TabIndex = 0;
             this.btnAdminGiris.Text = "Giriş Yap";
             this.btnAdminGiris.UseVisualStyleBackColor = true;
+            this.btnAdminGiris.Click += new System.EventHandler(this.btnAdminGiris_Click);
             // 
             // txtAdminKullaniciAdi
             // 
@@ -93,14 +93,13 @@ namespace Borsa
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.btnKayitOl);
             this.panel2.Controls.Add(this.txtSifre);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.btnGiris);
             this.panel2.Controls.Add(this.txtKullaniciAdi);
             this.panel2.Controls.Add(this.label4);
-            this.panel2.Location = new System.Drawing.Point(277, 140);
+            this.panel2.Location = new System.Drawing.Point(268, 35);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(223, 138);
             this.panel2.TabIndex = 14;
@@ -125,7 +124,7 @@ namespace Borsa
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 36);
+            this.label3.Location = new System.Drawing.Point(37, 36);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(28, 13);
             this.label3.TabIndex = 4;
@@ -139,6 +138,7 @@ namespace Borsa
             this.btnGiris.TabIndex = 0;
             this.btnGiris.Text = "Giriş Yap";
             this.btnGiris.UseVisualStyleBackColor = true;
+            this.btnGiris.Click += new System.EventHandler(this.btnGiris_Click);
             // 
             // txtKullaniciAdi
             // 
@@ -164,15 +164,15 @@ namespace Borsa
             this.panel1.Controls.Add(this.btnAdminGiris);
             this.panel1.Controls.Add(this.txtAdminKullaniciAdi);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(16, 149);
+            this.panel1.Location = new System.Drawing.Point(12, 35);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(223, 118);
+            this.panel1.Size = new System.Drawing.Size(229, 138);
             this.panel1.TabIndex = 13;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(274, 124);
+            this.label6.Location = new System.Drawing.Point(265, 19);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(69, 13);
             this.label6.TabIndex = 16;
@@ -181,26 +181,17 @@ namespace Borsa
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(25, 133);
+            this.label5.Location = new System.Drawing.Point(21, 19);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(59, 13);
             this.label5.TabIndex = 15;
             this.label5.Text = "Admin Giris";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(32, 100);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(33, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // GirisFormu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(517, 403);
+            this.ClientSize = new System.Drawing.Size(526, 203);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label6);
@@ -233,7 +224,6 @@ namespace Borsa
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button1;
     }
 }
 
