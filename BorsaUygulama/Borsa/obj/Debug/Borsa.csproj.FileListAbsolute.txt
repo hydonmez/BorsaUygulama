@@ -19,3 +19,24 @@ C:\Users\ASUS\Desktop\Yazılım Yapımı\BorsaUygulama\BorsaUygulama\Borsa\obj\D
 C:\Users\ASUS\Desktop\Yazılım Yapımı\BorsaUygulama\BorsaUygulama\Borsa\obj\Debug\Borsa.csproj.CopyComplete
 C:\Users\ASUS\Desktop\Yazılım Yapımı\BorsaUygulama\BorsaUygulama\Borsa\obj\Debug\Borsa.exe
 C:\Users\ASUS\Desktop\Yazılım Yapımı\BorsaUygulama\BorsaUygulama\Borsa\obj\Debug\Borsa.pdb
+C:\Users\hydon\Desktop\Yazılım Yapımı Proje\BorsaUygulama\BorsaUygulama\Borsa\bin\Debug\Borsa.exe.config
+C:\Users\hydon\Desktop\Yazılım Yapımı Proje\BorsaUygulama\BorsaUygulama\Borsa\bin\Debug\Borsa.exe
+C:\Users\hydon\Desktop\Yazılım Yapımı Proje\BorsaUygulama\BorsaUygulama\Borsa\bin\Debug\Borsa.pdb
+C:\Users\hydon\Desktop\Yazılım Yapımı Proje\BorsaUygulama\BorsaUygulama\Borsa\bin\Debug\EntityFramework.dll
+C:\Users\hydon\Desktop\Yazılım Yapımı Proje\BorsaUygulama\BorsaUygulama\Borsa\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\hydon\Desktop\Yazılım Yapımı Proje\BorsaUygulama\BorsaUygulama\Borsa\bin\Debug\EntityFramework.xml
+C:\Users\hydon\Desktop\Yazılım Yapımı Proje\BorsaUygulama\BorsaUygulama\Borsa\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\hydon\Desktop\Yazılım Yapımı Proje\BorsaUygulama\BorsaUygulama\Borsa\obj\Debug\Borsa.csprojAssemblyReference.cache
+C:\Users\hydon\Desktop\Yazılım Yapımı Proje\BorsaUygulama\BorsaUygulama\Borsa\obj\Debug\Borsa.AlisIslemleriForm.resources
+C:\Users\hydon\Desktop\Yazılım Yapımı Proje\BorsaUygulama\BorsaUygulama\Borsa\obj\Debug\Borsa.BilgiGirisEkrani.resources
+C:\Users\hydon\Desktop\Yazılım Yapımı Proje\BorsaUygulama\BorsaUygulama\Borsa\obj\Debug\Borsa.GirisFormu.resources
+C:\Users\hydon\Desktop\Yazılım Yapımı Proje\BorsaUygulama\BorsaUygulama\Borsa\obj\Debug\Borsa.KayitOlmaForm.resources
+C:\Users\hydon\Desktop\Yazılım Yapımı Proje\BorsaUygulama\BorsaUygulama\Borsa\obj\Debug\Borsa.KullaniciIslemleriMenuForm.resources
+C:\Users\hydon\Desktop\Yazılım Yapımı Proje\BorsaUygulama\BorsaUygulama\Borsa\obj\Debug\Borsa.OnayForm.resources
+C:\Users\hydon\Desktop\Yazılım Yapımı Proje\BorsaUygulama\BorsaUygulama\Borsa\obj\Debug\Borsa.Properties.Resources.resources
+C:\Users\hydon\Desktop\Yazılım Yapımı Proje\BorsaUygulama\BorsaUygulama\Borsa\obj\Debug\Borsa.SatisIslemleriFormu.resources
+C:\Users\hydon\Desktop\Yazılım Yapımı Proje\BorsaUygulama\BorsaUygulama\Borsa\obj\Debug\Borsa.csproj.GenerateResource.cache
+C:\Users\hydon\Desktop\Yazılım Yapımı Proje\BorsaUygulama\BorsaUygulama\Borsa\obj\Debug\Borsa.csproj.CoreCompileInputs.cache
+C:\Users\hydon\Desktop\Yazılım Yapımı Proje\BorsaUygulama\BorsaUygulama\Borsa\obj\Debug\Borsa.csproj.CopyComplete
+C:\Users\hydon\Desktop\Yazılım Yapımı Proje\BorsaUygulama\BorsaUygulama\Borsa\obj\Debug\Borsa.exe
+C:\Users\hydon\Desktop\Yazılım Yapımı Proje\BorsaUygulama\BorsaUygulama\Borsa\obj\Debug\Borsa.pdb
