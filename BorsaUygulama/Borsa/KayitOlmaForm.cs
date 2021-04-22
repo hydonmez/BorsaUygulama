@@ -16,7 +16,8 @@ namespace Borsa
         {
             InitializeComponent();
         }
-
+        VeriTabaniEntities veritabani = new VeriTabaniEntities();
+        KullaniciManager kullanicimanager = new KullaniciManager();
         private void btnKayitOl_Click(object sender, EventArgs e)
         {
             KullaniciTbl kullanici = new KullaniciTbl();

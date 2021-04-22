@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Borsa
 {
-    class KullaniciManager
+   public class KullaniciManager
     {
         VeriTabaniEntities veriTabani = new VeriTabaniEntities();
 
