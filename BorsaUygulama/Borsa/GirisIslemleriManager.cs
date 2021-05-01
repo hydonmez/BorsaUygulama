@@ -21,12 +21,10 @@ namespace Borsa
             {
                 girisId = item.KullaniciId;
             }
-            if(sonuc.Any())
+            if(sonuc.Any())//sonuc listesinde bir kayıt varsa true döner ve formu açar 
             {
                 
-                KullaniciIslemleriMenuForm kullaniciIslemlerimenu = new KullaniciIslemleriMenuForm();
-                
-               
+                KullaniciIslemleriMenuForm kullaniciIslemlerimenu = new KullaniciIslemleriMenuForm();             
                 kullaniciIslemlerimenu.Show();
             }
             else
@@ -39,7 +37,7 @@ namespace Borsa
         {
             var sonuc = from gecici in veriTabani.AdminTbl
                         where gecici.AdmiKullaniciAdi == admin.AdmiKullaniciAdi
-&& gecici.AdminSifre == admin.AdminSifre
+                       && gecici.AdminSifre == admin.AdminSifre
                         select gecici;
          
             if (sonuc.Any())

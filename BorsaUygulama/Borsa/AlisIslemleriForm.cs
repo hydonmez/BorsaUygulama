@@ -16,5 +16,32 @@ namespace Borsa
         {
             InitializeComponent();
         }
+
+        private void btnAlisIstegi_Click(object sender, EventArgs e)
+        {
+            if (!BosMu())
+            {
+                AlisIslemleriManager alisIslemleri = new AlisIslemleriManager();
+                alisIslemleri.AlisIstegiGonder(cmbAlınacakUrun.Text, Convert.ToInt32(txtAlisMiktari.Text));
+            }
+            
+        }
+        public Boolean BosMu()
+        {
+            if (txtAlisMiktari.Text == "" || cmbAlınacakUrun.SelectedItem == null)
+            {
+                MessageBox.Show("hiç bir alan bos geçilemez");
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private void txtAlisMiktari_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar);//sadece sayi ve kontrol
+        }
     }
 }

@@ -67,6 +67,7 @@
     <Compile Include="AlisIslemleriForm.Designer.cs">
       <DependentUpon>AlisIslemleriForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AlisIslemleriManager.cs" />
     <Compile Include="BilgiGirisEkrani.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +118,7 @@
     <Compile Include="OnayForm.Designer.cs">
       <DependentUpon>OnayForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="OnayIslemleriManager.cs" />
     <Compile Include="OnayTbl.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -128,6 +130,7 @@
     <Compile Include="SatisIslemleriFormu.Designer.cs">
       <DependentUpon>SatisIslemleriFormu.cs</DependentUpon>
     </Compile>
+    <Compile Include="SatisIslemleriManager.cs" />
     <Compile Include="SatistakiUrunTbl.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

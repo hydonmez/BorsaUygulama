@@ -44,6 +44,7 @@ namespace Borsa
             this.txtMiktar.Name = "txtMiktar";
             this.txtMiktar.Size = new System.Drawing.Size(121, 20);
             this.txtMiktar.TabIndex = 14;
+            this.txtMiktar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMiktar_KeyPress);
             // 
             // btnİstek
             // 
@@ -75,11 +76,13 @@ namespace Borsa
             // 
             // cmbİstek
             // 
+            this.cmbİstek.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbİstek.FormattingEnabled = true;
             this.cmbİstek.Items.AddRange(new object[] {
             "Para",
-            "Arpa",
-            "Buğday"});
+            "Bugday",
+            "Petrol",
+            "Yulaf"});
             this.cmbİstek.Location = new System.Drawing.Point(122, 17);
             this.cmbİstek.Name = "cmbİstek";
             this.cmbİstek.Size = new System.Drawing.Size(121, 21);
@@ -88,16 +91,16 @@ namespace Borsa
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(289, 29);
+            this.dataGridView1.Location = new System.Drawing.Point(249, 17);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(586, 225);
+            this.dataGridView1.Size = new System.Drawing.Size(670, 105);
             this.dataGridView1.TabIndex = 15;
             // 
             // BilgiGirisEkrani
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(931, 294);
+            this.ClientSize = new System.Drawing.Size(931, 137);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.txtMiktar);
             this.Controls.Add(this.btnİstek);

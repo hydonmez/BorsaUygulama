@@ -38,7 +38,7 @@ namespace Borsa
             // button1
             // 
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button1.Location = new System.Drawing.Point(21, 142);
+            this.button1.Location = new System.Drawing.Point(21, 105);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(186, 23);
             this.button1.TabIndex = 11;
@@ -49,7 +49,7 @@ namespace Borsa
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 13);
+            this.label1.Location = new System.Drawing.Point(18, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 13);
             this.label1.TabIndex = 10;
@@ -58,7 +58,7 @@ namespace Borsa
             // btnAlis
             // 
             this.btnAlis.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnAlis.Location = new System.Drawing.Point(21, 99);
+            this.btnAlis.Location = new System.Drawing.Point(21, 76);
             this.btnAlis.Name = "btnAlis";
             this.btnAlis.Size = new System.Drawing.Size(186, 23);
             this.btnAlis.TabIndex = 9;
@@ -80,13 +80,14 @@ namespace Borsa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(274, 224);
+            this.ClientSize = new System.Drawing.Size(1121, 453);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAlis);
             this.Controls.Add(this.btnSatis);
             this.Name = "KullaniciIslemleriMenuForm";
             this.Text = "KullaniciIslemleriMenuForm";
+            this.Load += new System.EventHandler(this.KullaniciIslemleriMenuForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

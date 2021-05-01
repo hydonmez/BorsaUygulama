@@ -29,23 +29,24 @@ namespace Borsa
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSatisIstegiGonder = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtSatisFiyati = new System.Windows.Forms.TextBox();
+            this.txtSatisMiktari = new System.Windows.Forms.TextBox();
+            this.cmbSatilacakUrun = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button1
+            // btnSatisIstegiGonder
             // 
-            this.button1.Location = new System.Drawing.Point(131, 133);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(121, 26);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "Satis isteği gönder";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSatisIstegiGonder.Location = new System.Drawing.Point(131, 133);
+            this.btnSatisIstegiGonder.Name = "btnSatisIstegiGonder";
+            this.btnSatisIstegiGonder.Size = new System.Drawing.Size(121, 26);
+            this.btnSatisIstegiGonder.TabIndex = 20;
+            this.btnSatisIstegiGonder.Text = "Satis isteği gönder";
+            this.btnSatisIstegiGonder.UseVisualStyleBackColor = true;
+            this.btnSatisIstegiGonder.Click += new System.EventHandler(this.btnSatisIstegiGonder_Click);
             // 
             // label3
             // 
@@ -65,27 +66,34 @@ namespace Borsa
             this.label2.TabIndex = 18;
             this.label2.Text = "Satilacak Miktar";
             // 
-            // textBox2
+            // txtSatisFiyati
             // 
-            this.textBox2.Location = new System.Drawing.Point(131, 96);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(121, 20);
-            this.textBox2.TabIndex = 17;
+            this.txtSatisFiyati.Location = new System.Drawing.Point(131, 96);
+            this.txtSatisFiyati.Name = "txtSatisFiyati";
+            this.txtSatisFiyati.Size = new System.Drawing.Size(121, 20);
+            this.txtSatisFiyati.TabIndex = 17;
+            this.txtSatisFiyati.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSatisFiyati_KeyPress);
             // 
-            // textBox1
+            // txtSatisMiktari
             // 
-            this.textBox1.Location = new System.Drawing.Point(131, 57);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 20);
-            this.textBox1.TabIndex = 16;
+            this.txtSatisMiktari.Location = new System.Drawing.Point(131, 57);
+            this.txtSatisMiktari.Name = "txtSatisMiktari";
+            this.txtSatisMiktari.Size = new System.Drawing.Size(121, 20);
+            this.txtSatisMiktari.TabIndex = 16;
+            this.txtSatisMiktari.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSatisMiktari_KeyPress);
             // 
-            // comboBox1
+            // cmbSatilacakUrun
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(131, 19);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 15;
+            this.cmbSatilacakUrun.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSatilacakUrun.FormattingEnabled = true;
+            this.cmbSatilacakUrun.Items.AddRange(new object[] {
+            "Bugday",
+            "Petrol",
+            "Yulaf"});
+            this.cmbSatilacakUrun.Location = new System.Drawing.Point(131, 19);
+            this.cmbSatilacakUrun.Name = "cmbSatilacakUrun";
+            this.cmbSatilacakUrun.Size = new System.Drawing.Size(121, 21);
+            this.cmbSatilacakUrun.TabIndex = 15;
             // 
             // label1
             // 
@@ -101,15 +109,16 @@ namespace Borsa
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(303, 189);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnSatisIstegiGonder);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.txtSatisFiyati);
+            this.Controls.Add(this.txtSatisMiktari);
+            this.Controls.Add(this.cmbSatilacakUrun);
             this.Controls.Add(this.label1);
             this.Name = "SatisIslemleriFormu";
             this.Text = "SatisIslemleriFormu";
+            this.Load += new System.EventHandler(this.SatisIslemleriFormu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -117,12 +126,12 @@ namespace Borsa
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSatisIstegiGonder;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox txtSatisFiyati;
+        private System.Windows.Forms.TextBox txtSatisMiktari;
+        private System.Windows.Forms.ComboBox cmbSatilacakUrun;
         private System.Windows.Forms.Label label1;
     }
 }

@@ -34,5 +34,10 @@ namespace Borsa
             BilgiGirisEkrani bilgigiris = new BilgiGirisEkrani();
             bilgigiris.Show();
         }
+
+        private void KullaniciIslemleriMenuForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

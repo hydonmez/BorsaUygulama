@@ -17,6 +17,9 @@ namespace Borsa
             InitializeComponent();
         }
         VeriTabaniEntities veriTabani = new VeriTabaniEntities();
+        OnayTbl onaylama = new OnayTbl();
+        OnayIslemleriManager onayislemleri = new OnayIslemleriManager();
+        
         private void OnayForm_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = veriTabani.OnayTbl.ToList();
@@ -24,7 +27,25 @@ namespace Borsa
 
         private void btnOnayla_Click(object sender, EventArgs e)
         {
-           //datagridwiew seçtiğin id git değiştirilecek urun neyse onu+
+
+            var sorgu = veriTabani.OnayTbl.Find(dataGridView1.SelectedRows[0].Cells[0].Value);
+            onayislemleri.onaylama(sorgu);
+            OnaySil();
+            }
+
+        private void btnReddet_Click(object sender, EventArgs e)
+        {
+            OnaySil();
+            MessageBox.Show("Seçilen islem red edilmistir");
+        }
+
+        public void OnaySil()
+        {
+            var sorgu = veriTabani.OnayTbl.Find(dataGridView1.SelectedRows[0].Cells[0].Value);
+            veriTabani.OnayTbl.Remove(sorgu);
+            veriTabani.SaveChanges();
+            dataGridView1.DataSource = veriTabani.OnayTbl.ToList();
+            
         }
     }
 }

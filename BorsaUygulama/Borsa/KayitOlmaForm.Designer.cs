@@ -107,6 +107,7 @@ namespace Borsa
             this.txtTel.Name = "txtTel";
             this.txtTel.Size = new System.Drawing.Size(155, 20);
             this.txtTel.TabIndex = 65;
+            this.txtTel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTel_KeyPress);
             // 
             // txtTC
             // 
@@ -114,6 +115,7 @@ namespace Borsa
             this.txtTC.Name = "txtTC";
             this.txtTC.Size = new System.Drawing.Size(155, 20);
             this.txtTC.TabIndex = 64;
+            this.txtTC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTC_KeyPress);
             // 
             // txtSifre
             // 
@@ -135,6 +137,7 @@ namespace Borsa
             this.txtSoyad.Name = "txtSoyad";
             this.txtSoyad.Size = new System.Drawing.Size(155, 20);
             this.txtSoyad.TabIndex = 61;
+            this.txtSoyad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoyad_KeyPress);
             // 
             // txtAd
             // 
@@ -142,6 +145,7 @@ namespace Borsa
             this.txtAd.Name = "txtAd";
             this.txtAd.Size = new System.Drawing.Size(155, 20);
             this.txtAd.TabIndex = 60;
+            this.txtAd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAd_KeyPress);
             // 
             // label6
             // 
@@ -221,6 +225,7 @@ namespace Borsa
             this.Controls.Add(this.label1);
             this.Name = "KayitOlmaForm";
             this.Text = "KayitOlmaForm";
+            this.Load += new System.EventHandler(this.KayitOlmaForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

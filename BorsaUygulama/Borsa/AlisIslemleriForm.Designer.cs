@@ -29,21 +29,22 @@ namespace Borsa
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAlisIstegi = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtAlisMiktari = new System.Windows.Forms.TextBox();
+            this.cmbAlınacakUrun = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button1
+            // btnAlisIstegi
             // 
-            this.button1.Location = new System.Drawing.Point(128, 96);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(121, 26);
-            this.button1.TabIndex = 23;
-            this.button1.Text = "Alis isteği gönder";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAlisIstegi.Location = new System.Drawing.Point(128, 96);
+            this.btnAlisIstegi.Name = "btnAlisIstegi";
+            this.btnAlisIstegi.Size = new System.Drawing.Size(121, 26);
+            this.btnAlisIstegi.TabIndex = 23;
+            this.btnAlisIstegi.Text = "Alis isteği gönder";
+            this.btnAlisIstegi.UseVisualStyleBackColor = true;
+            this.btnAlisIstegi.Click += new System.EventHandler(this.btnAlisIstegi_Click);
             // 
             // label2
             // 
@@ -54,24 +55,26 @@ namespace Borsa
             this.label2.TabIndex = 22;
             this.label2.Text = "Alinacak Miktar";
             // 
-            // textBox1
+            // txtAlisMiktari
             // 
-            this.textBox1.Location = new System.Drawing.Point(128, 60);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 20);
-            this.textBox1.TabIndex = 21;
+            this.txtAlisMiktari.Location = new System.Drawing.Point(128, 60);
+            this.txtAlisMiktari.Name = "txtAlisMiktari";
+            this.txtAlisMiktari.Size = new System.Drawing.Size(121, 20);
+            this.txtAlisMiktari.TabIndex = 21;
+            this.txtAlisMiktari.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAlisMiktari_KeyPress);
             // 
-            // comboBox1
+            // cmbAlınacakUrun
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Arpa",
-            "Bugday",
-            "Petrol"});
-            this.comboBox1.Location = new System.Drawing.Point(128, 22);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 20;
+            this.cmbAlınacakUrun.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbAlınacakUrun.FormattingEnabled = true;
+            this.cmbAlınacakUrun.Items.AddRange(new object[] {
+            "Buğday",
+            "Petrol",
+            "Yulaf"});
+            this.cmbAlınacakUrun.Location = new System.Drawing.Point(128, 22);
+            this.cmbAlınacakUrun.Name = "cmbAlınacakUrun";
+            this.cmbAlınacakUrun.Size = new System.Drawing.Size(121, 21);
+            this.cmbAlınacakUrun.TabIndex = 20;
             // 
             // label1
             // 
@@ -87,10 +90,10 @@ namespace Borsa
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(341, 163);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAlisIstegi);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.txtAlisMiktari);
+            this.Controls.Add(this.cmbAlınacakUrun);
             this.Controls.Add(this.label1);
             this.Name = "AlisIslemleriForm";
             this.Text = "AlisIslemleriForm";
@@ -101,10 +104,10 @@ namespace Borsa
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAlisIstegi;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox txtAlisMiktari;
+        private System.Windows.Forms.ComboBox cmbAlınacakUrun;
         private System.Windows.Forms.Label label1;
     }
 }

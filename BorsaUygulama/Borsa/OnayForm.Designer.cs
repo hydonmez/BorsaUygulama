@@ -43,6 +43,7 @@ namespace Borsa
             this.btnReddet.TabIndex = 8;
             this.btnReddet.Text = "Reddet";
             this.btnReddet.UseVisualStyleBackColor = true;
+            this.btnReddet.Click += new System.EventHandler(this.btnReddet_Click);
             // 
             // btnOnayla
             // 
@@ -58,7 +59,9 @@ namespace Borsa
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(519, 161);
             this.dataGridView1.TabIndex = 6;
             // 
@@ -66,7 +69,7 @@ namespace Borsa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(582, 258);
             this.Controls.Add(this.btnReddet);
             this.Controls.Add(this.btnOnayla);
             this.Controls.Add(this.dataGridView1);
