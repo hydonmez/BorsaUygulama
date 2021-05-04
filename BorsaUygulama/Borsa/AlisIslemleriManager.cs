@@ -20,7 +20,7 @@ namespace Borsa
 
 
                 AliciIstekTbl aliciistek = new AliciIstekTbl();
-                aliciistek.AliciIstekId = GirisIslemleriManager.girisId;
+                aliciistek.KullaniciId = GirisIslemleriManager.girisId;
                 aliciistek.IstenilenUrun = alinacakUrun;
                 aliciistek.IstekMiktari = miktar;
                 aliciistek.IstekTarihi = Convert.ToDateTime(DateTime.Now.ToLongDateString());

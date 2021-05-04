@@ -52,6 +52,7 @@ namespace Borsa
             // 
             this.txtAdminSifre.Location = new System.Drawing.Point(73, 33);
             this.txtAdminSifre.Name = "txtAdminSifre";
+            this.txtAdminSifre.PasswordChar = '*';
             this.txtAdminSifre.Size = new System.Drawing.Size(131, 20);
             this.txtAdminSifre.TabIndex = 3;
             // 
@@ -118,6 +119,7 @@ namespace Borsa
             // 
             this.txtSifre.Location = new System.Drawing.Point(73, 33);
             this.txtSifre.Name = "txtSifre";
+            this.txtSifre.PasswordChar = '*';
             this.txtSifre.Size = new System.Drawing.Size(131, 20);
             this.txtSifre.TabIndex = 3;
             // 
