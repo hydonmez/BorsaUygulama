@@ -68,7 +68,7 @@ namespace Borsa
             this.cmbAlınacakUrun.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbAlınacakUrun.FormattingEnabled = true;
             this.cmbAlınacakUrun.Items.AddRange(new object[] {
-            "Buğday",
+            "Bugday",
             "Petrol",
             "Yulaf"});
             this.cmbAlınacakUrun.Location = new System.Drawing.Point(128, 22);

@@ -16,7 +16,7 @@ namespace Borsa
         {
             InitializeComponent();
         }
-
+       
         private void btnAlisIstegi_Click(object sender, EventArgs e)
         {
             if (!BosMu())
@@ -24,6 +24,8 @@ namespace Borsa
                 AlisIslemleriManager alisIslemleri = new AlisIslemleriManager();
                 alisIslemleri.AlisIstegiGonder(cmbAlınacakUrun.Text, Convert.ToInt32(txtAlisMiktari.Text));
             }
+            
+
             
         }
         public Boolean BosMu()

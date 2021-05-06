@@ -24,14 +24,9 @@ namespace Borsa
             MessageBox.Show("Secilen İslem Onaylanmıştir");
 
         }
-        public static object GetPropValue(KullaniciTbl src, string propName)//gelen degeri almak için 
-        {
-            return src.GetType().GetProperty(propName);
-
-        }
+        
         public void onaylama(OnayTbl onaylanacak)
         {
-
             var sorgu = from gecici in veriTabani.KullaniciTbl where gecici.KullaniciId == onaylanacak.KullaniciID select gecici;
 
             foreach (var item in sorgu)

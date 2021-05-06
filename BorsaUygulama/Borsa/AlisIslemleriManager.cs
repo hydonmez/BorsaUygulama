@@ -10,7 +10,7 @@ namespace Borsa
     public class AlisIslemleriManager
     {
         VeriTabaniEntities veriTabani = new VeriTabaniEntities();
-
+        OtomatikSatisGerceklestirme otomatikSatis = new OtomatikSatisGerceklestirme();
 
 
         public void AlisIstegiGonder(string alinacakUrun,int miktar)
@@ -27,6 +27,7 @@ namespace Borsa
                 veriTabani.AliciIstekTbl.Add(aliciistek);
                 veriTabani.SaveChanges();
                 MessageBox.Show("Alis isteginiz alinmistir ");
+                otomatikSatis.satisYap(alinacakUrun);
             }
             else
             {

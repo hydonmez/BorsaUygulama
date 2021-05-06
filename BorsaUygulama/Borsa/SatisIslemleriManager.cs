@@ -10,6 +10,7 @@ namespace Borsa
     public class SatisIslemleriManager
     {
         VeriTabaniEntities veriTabani = new VeriTabaniEntities();
+        OtomatikSatisGerceklestirme otomatikSatis = new OtomatikSatisGerceklestirme();
 
         public void SatisIstegiGonder(string satilacakUrun, int miktar, int fiyati)
         {
@@ -25,6 +26,7 @@ namespace Borsa
                 veriTabani.SatistakiUrunTbl.Add(satistakiUrun);
                 veriTabani.SaveChanges();
                 MessageBox.Show("satis islem isteginiz gerçekleşmiştir");
+                otomatikSatis.satisYap(satilacakUrun);
             }
             else
             {
@@ -32,7 +34,7 @@ namespace Borsa
             }
         }
        
-        public Boolean SatisDogrulama(string satilacakUrun, int miktar)
+        private Boolean SatisDogrulama(string satilacakUrun, int miktar)
         {   
             decimal satistakiToplamUrun = 0;
             Decimal hesaptakiUrunMiktari = 0;
