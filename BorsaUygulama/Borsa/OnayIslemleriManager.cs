@@ -11,38 +11,25 @@ namespace Borsa
     class OnayIslemleriManager
     {
         VeriTabaniEntities veriTabani = new VeriTabaniEntities();
-        KullaniciTbl kullanici = new KullaniciTbl();
-        public void Onaylama(OnayTbl onaylanacak)
-        {
-            var sorgu = from gecici in veriTabani.KullaniciTbl where gecici.KullaniciId == onaylanacak.KullaniciID select gecici;
+        public void Onaylama(OnayTbl onaylanacak) //Parametre olarak onaylanacak nesne alinir
+        {   
+            //Onay tablosundaki kullaniciId ye gore ilgili kullanici verisi getirilir.
+            var sorgu = from kullanici in veriTabani.KullaniciTbl where kullanici.KullaniciId == onaylanacak.KullaniciID select kullanici;
 
-            foreach (var item in sorgu)
+            foreach (var kullanici in sorgu)
             {
-                item.HesaptakiPara = item.HesaptakiPara + onaylanacak.Miktar;
-            }
-            veriTabani.SaveChanges();
-            MessageBox.Show("Secilen İslem Onaylanmıştir");
+                string deger = "Hesaptaki" + onaylanacak.OnaylanacakNesne; //Gelen onaylanacak nesnenin ön adina "Hesaptaki" kelimesini ekliyoruz
 
-        }
-        
-        public void onaylama(OnayTbl onaylanacak)
-        {
-            var sorgu = from gecici in veriTabani.KullaniciTbl where gecici.KullaniciId == onaylanacak.KullaniciID select gecici;
+                //Kullanici tablosundan onaylanmak istenen nesnenin mevcut miktari getirilir ve Decimal tipine cevrilir.
+                var mevcutMiktar =Convert.ToDecimal(kullanici.GetType().GetProperty(deger).GetValue(kullanici, null));
 
-            foreach (var item in sorgu)
-            {
+                mevcutMiktar = mevcutMiktar + onaylanacak.Miktar; //Mevcut miktara onaylanacak miktar eklenir.
 
-                string deger = "Hesaptaki" + onaylanacak.OnaylanacakNesne;
-
-               
-                var x =Convert.ToDecimal(item.GetType().GetProperty(deger).GetValue(item, null));
-                x = x + onaylanacak.Miktar;
-
-                item.GetType().GetProperty(deger).SetValue(item, x); 
-                MessageBox.Show("Onaylanma islemi gerceklesmistir");
+                kullanici.GetType().GetProperty(deger).SetValue(kullanici, mevcutMiktar); //Kullanici tablosundan onaylanmak istenen nesnenin mevcut miktari yeni olusan mevcut miktar ile degistirilir. 
+                MessageBox.Show("Onaylanma İşlemi Gerçekleştirildi");
 
             }
-            veriTabani.SaveChanges();
+            veriTabani.SaveChanges();//Degisiklikler veritabanina kaydedilir.
 
 
         }

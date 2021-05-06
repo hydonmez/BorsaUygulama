@@ -55,15 +55,16 @@ namespace Borsa
             this.txtAdminSifre.PasswordChar = '*';
             this.txtAdminSifre.Size = new System.Drawing.Size(131, 20);
             this.txtAdminSifre.TabIndex = 3;
+            this.txtAdminSifre.Text = "1234";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(3, 36);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(28, 13);
+            this.label2.Size = new System.Drawing.Size(34, 13);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Şifre";
+            this.label2.Text = "Şifre: ";
             // 
             // btnAdminGiris
             // 
@@ -81,15 +82,16 @@ namespace Borsa
             this.txtAdminKullaniciAdi.Name = "txtAdminKullaniciAdi";
             this.txtAdminKullaniciAdi.Size = new System.Drawing.Size(131, 20);
             this.txtAdminKullaniciAdi.TabIndex = 1;
+            this.txtAdminKullaniciAdi.Text = "hydonmez";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(3, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 13);
+            this.label1.Size = new System.Drawing.Size(70, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Kullanici Adi";
+            this.label1.Text = "Kullanıcı Adı: ";
             // 
             // panel2
             // 
@@ -111,7 +113,7 @@ namespace Borsa
             this.btnKayitOl.Name = "btnKayitOl";
             this.btnKayitOl.Size = new System.Drawing.Size(131, 23);
             this.btnKayitOl.TabIndex = 5;
-            this.btnKayitOl.Text = "Kayit Ol";
+            this.btnKayitOl.Text = "Kayıt Ol";
             this.btnKayitOl.UseVisualStyleBackColor = true;
             this.btnKayitOl.Click += new System.EventHandler(this.btnKayitOl_Click);
             // 
@@ -122,15 +124,16 @@ namespace Borsa
             this.txtSifre.PasswordChar = '*';
             this.txtSifre.Size = new System.Drawing.Size(131, 20);
             this.txtSifre.TabIndex = 3;
+            this.txtSifre.Text = "1234";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(37, 36);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(28, 13);
+            this.label3.Size = new System.Drawing.Size(34, 13);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Şifre";
+            this.label3.Text = "Şifre: ";
             // 
             // btnGiris
             // 
@@ -148,15 +151,16 @@ namespace Borsa
             this.txtKullaniciAdi.Name = "txtKullaniciAdi";
             this.txtKullaniciAdi.Size = new System.Drawing.Size(131, 20);
             this.txtKullaniciAdi.TabIndex = 1;
+            this.txtKullaniciAdi.Text = "hydonmez";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(3, 10);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 13);
+            this.label4.Size = new System.Drawing.Size(70, 13);
             this.label4.TabIndex = 2;
-            this.label4.Text = "Kullanici Adi";
+            this.label4.Text = "Kullanıcı Adı: ";
             // 
             // panel1
             // 
@@ -174,20 +178,22 @@ namespace Borsa
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label6.Location = new System.Drawing.Point(265, 19);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(69, 13);
+            this.label6.Size = new System.Drawing.Size(84, 13);
             this.label6.TabIndex = 16;
-            this.label6.Text = "Kullanici Giris";
+            this.label6.Text = "Kullanıcı Giriş";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 19);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label5.Location = new System.Drawing.Point(12, 19);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 13);
+            this.label5.Size = new System.Drawing.Size(70, 13);
             this.label5.TabIndex = 15;
-            this.label5.Text = "Admin Giris";
+            this.label5.Text = "Admin Giriş";
             // 
             // GirisFormu
             // 

@@ -56,6 +56,7 @@ namespace Borsa
             this.label3.Size = new System.Drawing.Size(57, 13);
             this.label3.TabIndex = 19;
             this.label3.Text = "Satis Fiyati";
+           
             // 
             // label2
             // 
@@ -65,6 +66,7 @@ namespace Borsa
             this.label2.Size = new System.Drawing.Size(83, 13);
             this.label2.TabIndex = 18;
             this.label2.Text = "Satilacak Miktar";
+           
             // 
             // txtSatisFiyati
             // 
@@ -72,6 +74,7 @@ namespace Borsa
             this.txtSatisFiyati.Name = "txtSatisFiyati";
             this.txtSatisFiyati.Size = new System.Drawing.Size(121, 20);
             this.txtSatisFiyati.TabIndex = 17;
+            
             this.txtSatisFiyati.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSatisFiyati_KeyPress);
             // 
             // txtSatisMiktari
@@ -118,7 +121,6 @@ namespace Borsa
             this.Controls.Add(this.label1);
             this.Name = "SatisIslemleriFormu";
             this.Text = "SatisIslemleriFormu";
-            this.Load += new System.EventHandler(this.SatisIslemleriFormu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

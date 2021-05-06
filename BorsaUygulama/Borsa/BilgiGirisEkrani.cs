@@ -21,7 +21,7 @@ namespace Borsa
 
         private void BilgiGirisEkrani_Load(object sender, EventArgs e)
         {
-            var sorgu = from gecici in veriTabani.KullaniciTbl where gecici.KullaniciId == GirisIslemleriManager.girisId select gecici;
+            var sorgu = from gecici in veriTabani.KullaniciTbl where gecici.KullaniciId == KullaniciGirisIslemleriManager.girisId select gecici;
             dataGridView1.DataSource = sorgu.ToList();
         }
 
@@ -30,7 +30,7 @@ namespace Borsa
             if (!BosGecildiMi())
             {
                 OnayTbl onaylanacak = new OnayTbl();
-                onaylanacak.KullaniciID = GirisIslemleriManager.girisId;
+                onaylanacak.KullaniciID = KullaniciGirisIslemleriManager.girisId;
                 onaylanacak.OnaylanacakNesne = cmbİstek.Text;
                 onaylanacak.Miktar = Convert.ToInt32(txtMiktar.Text);
                 veriTabani.OnayTbl.Add(onaylanacak);

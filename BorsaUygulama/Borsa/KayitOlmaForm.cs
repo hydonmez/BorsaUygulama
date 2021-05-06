@@ -16,27 +16,28 @@ namespace Borsa
         {
             InitializeComponent();
         }
-        VeriTabaniEntities veritabani = new VeriTabaniEntities();
-        KullaniciManager kullanicimanager = new KullaniciManager();
+        private KullaniciManager kullaniciManager = new KullaniciManager();
         private void btnKayitOl_Click(object sender, EventArgs e)
         {
-            if(!BosGecildiMi())
+            if (!BosGecildiMi()) //Hicbir alan bos gecilmediyse kullaniciyi ekler.
             {
-                KullaniciTbl kullanici = new KullaniciTbl();
-                kullanici.KullaniciAd = txtAd.Text;
-                kullanici.KullaniciAdi = txtKullaniciAd.Text;
-                kullanici.KullaniciSoyad = txtSoyad.Text;
-                kullanici.KullaniciAdres = txtAdres.Text;
-                kullanici.KullaniciTc = txtTC.Text;
-                kullanici.KullaniciTelefon = txtTel.Text;
-                kullanici.KullaniciSifre = txtSifre.Text;
-                kullanici.KullaniciMail = txtMail.Text;
-                Kontrol(kullanicimanager.KullaniciEkle(kullanici));
+                KullaniciTbl kullanici = new KullaniciTbl
+                {
+                    KullaniciAd = txtAd.Text,
+                    KullaniciAdi = txtKullaniciAd.Text,
+                    KullaniciSoyad = txtSoyad.Text,
+                    KullaniciAdres = txtAdres.Text,
+                    KullaniciTc = txtTC.Text,
+                    KullaniciTelefon = txtTel.Text,
+                    KullaniciSifre = txtSifre.Text,
+                    KullaniciMail = txtMail.Text
+                }; //kullaniciTbl sinifindan nesne olusturulur ve olusan nesne kullaniciManager sinifinin kullanici ekle metotuna parametre olarak gönderilir
+                Kontrol(kullaniciManager.KullaniciEkle(kullanici)); //Kullanicinin veritabanina eklenip eklenmedigi bilgisi getirilir.
             }
         }
-        public void Kontrol(Boolean eklendimi)
+        private void Kontrol(Boolean eklendiMi) //Veritabanina kullanici eklendiyse textlerin icini bosaltir.
         {
-            if (eklendimi)
+            if (eklendiMi)
             {
                 txtAd.Text = "";
                 txtKullaniciAd.Text = "";
@@ -46,31 +47,30 @@ namespace Borsa
                 txtTel.Text = "";
                 txtSifre.Text = "";
                 txtMail.Text = "";
-
             }
         }
-        public Boolean BosGecildiMi()
+        private Boolean BosGecildiMi() //Alanlarin bos gecilip gecilmedigi bilgisini dondurur.
         {
-            if (txtAd.Text == ""|| txtKullaniciAd.Text == ""|| txtSoyad.Text == "" || txtAdres.Text == "" ||
+            if (txtAd.Text == "" || txtKullaniciAd.Text == "" || txtSoyad.Text == "" || txtAdres.Text == "" ||
             txtTC.Text == "" || txtTel.Text == "" || txtSifre.Text == "" || txtMail.Text == "")
             {
-                MessageBox.Show("Hiç bir alan boş gecilemez");
-                return true;
+                MessageBox.Show("Hic bir alan boş gecilemez");
+                return true; 
             }
             else
             {
-                return false;
+                return false; //bos gelcilmediyse ekleme islemi icin izin ver
             }
         }
-
+        //textlere veri girislerini sinirlaryan kısımlar 
         private void txtAd_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsLetter(e.KeyChar)&&!char.IsWhiteSpace(e.KeyChar)&&!char.IsControl(e.KeyChar);//boşluk ve harf
+            e.Handled = !char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && !char.IsControl(e.KeyChar);//boşluk ve harf
         }
 
         private void txtTC_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);//sadece sayisal degerlere ve kontrol islemlerine izin verir(delete tusu)
         }
 
         private void txtTel_KeyPress(object sender, KeyPressEventArgs e)
@@ -80,12 +80,7 @@ namespace Borsa
 
         private void txtSoyad_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)&&!char.IsControl(e.KeyChar);//boşluk ve harf
-        }
-
-        private void KayitOlmaForm_Load(object sender, EventArgs e)
-        {
-
+            e.Handled = !char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && !char.IsControl(e.KeyChar);//boşluk ve harf
         }
     }
 }

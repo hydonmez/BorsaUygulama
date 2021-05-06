@@ -11,42 +11,41 @@ namespace Borsa
     {
         VeriTabaniEntities veriTabani = new VeriTabaniEntities();
         OtomatikSatisGerceklestirme otomatikSatis = new OtomatikSatisGerceklestirme();
-
-
-        public void AlisIstegiGonder(string alinacakUrun,int miktar)
+        public void AlisIstegiGonder(string alinacakUrun,int miktar) //Parametre olarak alinacak ürünle ilgili bilgiler alinir
         {
-            if (ParaYeterliMi())
+            if (ParaYeterliMi()) //Alicinin parasi yeterli ise alis istegi kabul edilir.
             {
-
-
-                AliciIstekTbl aliciistek = new AliciIstekTbl();
-                aliciistek.KullaniciId = GirisIslemleriManager.girisId;
-                aliciistek.IstenilenUrun = alinacakUrun;
-                aliciistek.IstekMiktari = miktar;
-                aliciistek.IstekTarihi = Convert.ToDateTime(DateTime.Now.ToLongDateString());
-                veriTabani.AliciIstekTbl.Add(aliciistek);
-                veriTabani.SaveChanges();
-                MessageBox.Show("Alis isteginiz alinmistir ");
-                otomatikSatis.satisYap(alinacakUrun);
+                AliciIstekTbl alisIstek = new AliciIstekTbl
+                {   
+                    //Formdan alinacak urunle ilgili bilgiler getirilir ve aktarilir.
+                    KullaniciId = KullaniciGirisIslemleriManager.girisId,
+                    IstenilenUrun = alinacakUrun,
+                    IstekMiktari = miktar,
+                    IstekTarihi = Convert.ToDateTime(DateTime.Now.ToLongDateString())
+                };
+                veriTabani.AliciIstekTbl.Add(alisIstek); //Veritabaninda bulunan AliciIstekTbl'a alis istegi eklenir.
+                veriTabani.SaveChanges(); ////Degisiklikler kayıt edilir.
+                MessageBox.Show("Alış İsteğiniz Alınmıştır");
+                otomatikSatis.IslemleriGerceklestir(alinacakUrun);////Alis istegi kayıt edildikten sonra otomatik satis islemleri için fonksiyon cagrilir
             }
             else
-            {
-                MessageBox.Show("Hesabınızda para bulumamaktadır");
+            {   
+                //Hesapta para yoksa kullaniciya uyari mesaji gosterilir.
+                MessageBox.Show("Hesabınızda Para Bulumamaktadır!");
             }
         }
-        public Boolean ParaYeterliMi()
-        {
-            var sorgu = from gecici in veriTabani.KullaniciTbl where gecici.KullaniciId == GirisIslemleriManager.girisId select gecici;
-            foreach (var item in sorgu)
+        public Boolean ParaYeterliMi() //Kullanicinin hesabindaki paranin 0'dan buyuk oldugunu kontrol eder.
+        {   
+            //Giris yapan kullanicinin Id'si ile kullanici tablosundaki kullanici Id'si eslesen veri listeye eklenir.
+            var kullanici = from gecici in veriTabani.KullaniciTbl where gecici.KullaniciId == KullaniciGirisIslemleriManager.girisId select gecici;
+            foreach (var kullaniciBilgileri in kullanici)
             {
-                if (item.HesaptakiPara > 0)
+                if (kullaniciBilgileri.HesaptakiPara > 0) //Hesaptaki para 0'dan buyuk ise alis izni verilir.
                 {
                     return true;
                 }
             }
-            return false;
-
-
+            return false; ////Hesaptaki para 0'dan buyuk degilse alis izni verilmez.
         }
     }
 }

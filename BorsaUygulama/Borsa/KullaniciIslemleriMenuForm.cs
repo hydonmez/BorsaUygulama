@@ -19,8 +19,8 @@ namespace Borsa
 
         private void btnSatis_Click(object sender, EventArgs e)
         {
-            SatisIslemleriFormu satisislemi = new SatisIslemleriFormu();
-            satisislemi.Show();
+            SatisIslemleriFormu satisIslemi = new SatisIslemleriFormu();
+            satisIslemi.Show();
         }
 
         private void btnAlis_Click(object sender, EventArgs e)
@@ -29,15 +29,14 @@ namespace Borsa
             alisIslemleri.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            BilgiGirisEkrani bilgigiris = new BilgiGirisEkrani();
-            bilgigiris.Show();
-        }
+      
 
-        private void KullaniciIslemleriMenuForm_Load(object sender, EventArgs e)
-        {
+      
 
+        private void btnNesneYukleme_Click(object sender, EventArgs e)
+        {
+            BilgiGirisEkrani bilgiGiris = new BilgiGirisEkrani();
+            bilgiGiris.Show();
         }
     }
 }

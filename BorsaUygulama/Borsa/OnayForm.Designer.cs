@@ -31,15 +31,16 @@ namespace Borsa
         {
             this.btnReddet = new System.Windows.Forms.Button();
             this.btnOnayla = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.grdOnayTablosu = new System.Windows.Forms.DataGridView();
+            this.lblOnay = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.grdOnayTablosu)).BeginInit();
             this.SuspendLayout();
             // 
             // btnReddet
             // 
-            this.btnReddet.Location = new System.Drawing.Point(140, 179);
+            this.btnReddet.Location = new System.Drawing.Point(207, 256);
             this.btnReddet.Name = "btnReddet";
-            this.btnReddet.Size = new System.Drawing.Size(118, 28);
+            this.btnReddet.Size = new System.Drawing.Size(119, 41);
             this.btnReddet.TabIndex = 8;
             this.btnReddet.Text = "Reddet";
             this.btnReddet.UseVisualStyleBackColor = true;
@@ -47,37 +48,51 @@ namespace Borsa
             // 
             // btnOnayla
             // 
-            this.btnOnayla.Location = new System.Drawing.Point(0, 179);
+            this.btnOnayla.Location = new System.Drawing.Point(67, 256);
             this.btnOnayla.Name = "btnOnayla";
-            this.btnOnayla.Size = new System.Drawing.Size(118, 28);
+            this.btnOnayla.Size = new System.Drawing.Size(121, 41);
             this.btnOnayla.TabIndex = 7;
             this.btnOnayla.Text = "Onayla";
             this.btnOnayla.UseVisualStyleBackColor = true;
             this.btnOnayla.Click += new System.EventHandler(this.btnOnayla_Click);
             // 
-            // dataGridView1
+            // grdOnayTablosu
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(519, 161);
-            this.dataGridView1.TabIndex = 6;
+            this.grdOnayTablosu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.grdOnayTablosu.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.grdOnayTablosu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdOnayTablosu.Location = new System.Drawing.Point(48, 57);
+            this.grdOnayTablosu.MultiSelect = false;
+            this.grdOnayTablosu.Name = "grdOnayTablosu";
+            this.grdOnayTablosu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grdOnayTablosu.Size = new System.Drawing.Size(598, 159);
+            this.grdOnayTablosu.TabIndex = 6;
+            // 
+            // lblOnay
+            // 
+            this.lblOnay.AutoSize = true;
+            this.lblOnay.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblOnay.Location = new System.Drawing.Point(45, 26);
+            this.lblOnay.Name = "lblOnay";
+            this.lblOnay.Size = new System.Drawing.Size(157, 15);
+            this.lblOnay.TabIndex = 9;
+            this.lblOnay.Text = "Onay Bekleyen İşlemler";
             // 
             // OnayForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(582, 258);
+            this.ClientSize = new System.Drawing.Size(820, 318);
+            this.Controls.Add(this.lblOnay);
             this.Controls.Add(this.btnReddet);
             this.Controls.Add(this.btnOnayla);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.grdOnayTablosu);
             this.Name = "OnayForm";
             this.Text = "OnayForm";
             this.Load += new System.EventHandler(this.OnayForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdOnayTablosu)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -85,6 +100,7 @@ namespace Borsa
 
         private System.Windows.Forms.Button btnReddet;
         private System.Windows.Forms.Button btnOnayla;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView grdOnayTablosu;
+        private System.Windows.Forms.Label lblOnay;
     }
 }

@@ -42,7 +42,7 @@ namespace Borsa
             this.btnAlisIstegi.Name = "btnAlisIstegi";
             this.btnAlisIstegi.Size = new System.Drawing.Size(121, 26);
             this.btnAlisIstegi.TabIndex = 23;
-            this.btnAlisIstegi.Text = "Alis isteği gönder";
+            this.btnAlisIstegi.Text = "Alış İsteği Gönder";
             this.btnAlisIstegi.UseVisualStyleBackColor = true;
             this.btnAlisIstegi.Click += new System.EventHandler(this.btnAlisIstegi_Click);
             // 
@@ -51,9 +51,9 @@ namespace Borsa
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(11, 60);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 13);
+            this.label2.Size = new System.Drawing.Size(83, 13);
             this.label2.TabIndex = 22;
-            this.label2.Text = "Alinacak Miktar";
+            this.label2.Text = "Alınacak Miktar:";
             // 
             // txtAlisMiktari
             // 
@@ -81,9 +81,9 @@ namespace Borsa
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(11, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 13);
+            this.label1.Size = new System.Drawing.Size(107, 13);
             this.label1.TabIndex = 19;
-            this.label1.Text = "Almak İstenilen Ürün";
+            this.label1.Text = "Almak İstenilen Ürün:";
             // 
             // AlisIslemleriForm
             // 

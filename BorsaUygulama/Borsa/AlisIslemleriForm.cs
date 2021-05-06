@@ -23,16 +23,13 @@ namespace Borsa
             {
                 AlisIslemleriManager alisIslemleri = new AlisIslemleriManager();
                 alisIslemleri.AlisIstegiGonder(cmbAlınacakUrun.Text, Convert.ToInt32(txtAlisMiktari.Text));
-            }
-            
-
-            
+            }           
         }
         public Boolean BosMu()
         {
             if (txtAlisMiktari.Text == "" || cmbAlınacakUrun.SelectedItem == null)
             {
-                MessageBox.Show("hiç bir alan bos geçilemez");
+                MessageBox.Show("Hiçbir Alan Boş Geçilemez!");
                 return true;
             }
             else

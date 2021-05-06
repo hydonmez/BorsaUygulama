@@ -16,19 +16,20 @@ namespace Borsa
         {
             InitializeComponent();
         }
-        GirisIslemleriManager girisislemleri = new GirisIslemleriManager();
-        KullaniciTbl kullanici = new KullaniciTbl();
+       private KullaniciGirisIslemleriManager girisIslemleri = new KullaniciGirisIslemleriManager();
+        private AdminGirisIslemleriManager adminIslemleri = new AdminGirisIslemleriManager();
+       private KullaniciTbl kullanici = new KullaniciTbl();
         private void btnKayitOl_Click(object sender, EventArgs e)
         {
-            KayitOlmaForm kayitol = new KayitOlmaForm();
-            kayitol.Show();
+            KayitOlmaForm kayitOl = new KayitOlmaForm();
+            kayitOl.Show();
         }
 
         private void btnGiris_Click(object sender, EventArgs e)
         {
             kullanici.KullaniciAdi = txtKullaniciAdi.Text;
             kullanici.KullaniciSifre = txtSifre.Text;
-            girisislemleri.GirisYapKullanici(kullanici);
+            girisIslemleri.GirisYap(kullanici);
         }
 
         private void btnAdminGiris_Click(object sender, EventArgs e)
@@ -37,7 +38,7 @@ namespace Borsa
             AdminTbl admin = new AdminTbl();
             admin.AdmiKullaniciAdi = txtAdminKullaniciAdi.Text;
             admin.AdminSifre = txtAdminSifre.Text;
-            girisislemleri.GirisYapAdmin(admin);
+            adminIslemleri.GirisYap(admin);
 
         
         }

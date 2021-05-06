@@ -16,36 +16,55 @@ namespace Borsa
         {
             InitializeComponent();
         }
-        VeriTabaniEntities veriTabani = new VeriTabaniEntities();
-        OnayTbl onaylama = new OnayTbl();
-        OnayIslemleriManager onayislemleri = new OnayIslemleriManager();
-        
+        private VeriTabaniEntities veriTabani = new VeriTabaniEntities();
+        OnayIslemleriManager onayIslemleri = new OnayIslemleriManager();
+        public void TabloyuGoster()
+        {
+            //onay tablosu ve kullanici tablosundaki bilgiler birlestirilerek grdOnayTablosu'na getirildi.
+            var sorgu = from onay in veriTabani.OnayTbl
+                        join kullanici in veriTabani.KullaniciTbl
+                        on onay.KullaniciID equals kullanici.KullaniciId //Onay tablosundaki kullaniciId si ve Kullanici tablosundaki kullaniciId si eşit olmalı
+                        select new
+                        {
+                            //Tablonun sutun isimleri ile getirilecek veriler ayarlandi ve listeye atildi.
+                            OnayId = onay.OnayId,
+                            KullaniciId = kullanici.KullaniciId,
+                            Kullanici = kullanici.KullaniciAd + " " + kullanici.KullaniciSoyad,
+                            Tc = kullanici.KullaniciTc,
+                            Onaylanacak_Nesne = onay.OnaylanacakNesne,
+                            Onaylanacak_Miktar = onay.Miktar
+                        };
+            grdOnayTablosu.DataSource = sorgu.ToList(); //Olusan liste grdOnayTablosu'na kaynak olarak verildi.
+        }
         private void OnayForm_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = veriTabani.OnayTbl.ToList();
+            TabloyuGoster(); // Form ilk acildiginda bekleyen onaylar grdOnayTablosu'nda gosterilir.          
         }
 
         private void btnOnayla_Click(object sender, EventArgs e)
         {
 
-            var sorgu = veriTabani.OnayTbl.Find(dataGridView1.SelectedRows[0].Cells[0].Value);
-            onayislemleri.onaylama(sorgu);
-            OnaySil();
-            }
+            //Onay Tablosunda bulunan istekler onaylanır.
+            var sorgu = veriTabani.OnayTbl.Find(grdOnayTablosu.SelectedRows[0].Cells[0].Value); //Onaylanacak veri bulunur.
+            onayIslemleri.Onaylama(sorgu); //Bulunan veri onayIslemleri formundaki onaylama metoduna gonderilerek onaylama islemi gerceklestirilir.         
+            OnaySil(); //Onaylanan istek silinir.
+        }
 
         private void btnReddet_Click(object sender, EventArgs e)
         {
+            //Reddedilen istek direkt tablodan silinir ve mesaj ekrana yazilir.
             OnaySil();
-            MessageBox.Show("Seçilen islem red edilmistir");
+            MessageBox.Show("Seçilen İşlem Reddedilmiştir!");
         }
 
         public void OnaySil()
         {
-            var sorgu = veriTabani.OnayTbl.Find(dataGridView1.SelectedRows[0].Cells[0].Value);
-            veriTabani.OnayTbl.Remove(sorgu);
-            veriTabani.SaveChanges();
-            dataGridView1.DataSource = veriTabani.OnayTbl.ToList();
-            
+         
+            var sorgu = veriTabani.OnayTbl.Find(grdOnayTablosu.SelectedRows[0].Cells[0].Value); //Tablodan onayId'sine gore veriyi bulur
+            veriTabani.OnayTbl.Remove(sorgu);//Bulunan veri silinir.
+            veriTabani.SaveChanges(); //Degisiklikler veritabanina kaydedilir.
+            TabloyuGoster();//Tablonun son guncel hali gosterilir.
+
         }
     }
 }

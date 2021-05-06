@@ -7,38 +7,36 @@ using System.Windows.Forms;
 
 namespace Borsa
 {
-   public class KullaniciManager
+    public class KullaniciManager
     {
         VeriTabaniEntities veriTabani = new VeriTabaniEntities();
-        public Boolean KullaniciEkle(KullaniciTbl kullanici) //kullanici ekleme işlemleri
+        public Boolean KullaniciEkle(KullaniciTbl kullanici) //Kullanici ekleme islemi icin Kullanici nesnesi alinir.
         {
-
-            if (KullaniciAdKontrol(kullanici) == false) // kullanici adi daha önce yoksa ekleme işlemleri gerçekleştiriliyor
+            if (!KullaniciAdKontrol(kullanici)) // Kullanici adi daha önce yoksa ekleme islemleri gerceklestirilir.
             {
-                veriTabani.KullaniciTbl.Add(kullanici);
+                veriTabani.KullaniciTbl.Add(kullanici);//Parametre olarak gelen kullanici nesnesi KullaniciTbl'ye eklenir.
                 veriTabani.SaveChanges();
-                MessageBox.Show("kullanici eklendi");
-                return true; 
+                MessageBox.Show("Kullanıcı Eklendi");
+                return true;
             }
             else
             {
-                MessageBox.Show("Bu kullanici adinda bir kullanici mevcut yeni bir kullanici adi giriniz");
+                //Ayni kullanici adi ile KullaniciTbl'de kayit varsa hata mesaji gosterilir.
+                MessageBox.Show("Bu Kullanıcı Adında Bir Kullanıcı Mevcut Yeni Bir Kullanıcı Adı Giriniz!");
                 return false;
             }
-
-           
         }
-        public Boolean KullaniciAdKontrol(KullaniciTbl kullanici)  //ayni kullanici adina sahip bir kullanicinin olup olmadigi kontrol ediliyor 
+        public Boolean KullaniciAdKontrol(KullaniciTbl kullanici)  //Ayni kullanici adina sahip bir kullanicinin olup olmadigi kontrol edilir 
         {
-            
-            var sonuc = from gecici in veriTabani.KullaniciTbl where gecici.KullaniciAdi == kullanici.KullaniciAdi select gecici;
-           
-            if(sonuc.Count()==0) //sorgudan dönen listenin eleman sayisi yoksa alınmak istenen kullanici adi yoktur ve olmadigini boolen olarak geri dönderir
+            //Kullanici tablosundan parametre olarak gelen kullanici adi ile ayni kayit varsa kullanicilar listesine eklenir.
+            var kullanicilar = from gecici in veriTabani.KullaniciTbl where gecici.KullaniciAdi == kullanici.KullaniciAdi select gecici;
+
+            if (kullanicilar.Count() == 0) //Sorgudan dönen listenin eleman sayisi yoksa alinmak istenen kullanici adi yoktur ve olmadigini boolen olarak geri dondurur.
             {
                 return false;
             }
             else
-            {  
+            {
                 return true;
             }
         }

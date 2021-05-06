@@ -20,16 +20,17 @@ namespace Borsa
 
         private void btnSatisIstegiGonder_Click(object sender, EventArgs e)
         {
-          if(!BosGecildiMi())
+            if (!BosGecildiMi()) //Alanlar bos gecilmediyse satis istegi gonderilir.
             {
                 satisIslemleri.SatisIstegiGonder(cmbSatilacakUrun.Text, Convert.ToInt32(txtSatisMiktari.Text), Convert.ToInt32(txtSatisFiyati.Text));
             }
         }
         public Boolean BosGecildiMi()
         {
-            if (txtSatisFiyati.Text == "" || txtSatisMiktari.Text == ""||cmbSatilacakUrun.SelectedItem==null)
+            //Alanlari bos gecilip gecilmedigi kontrol edilir.
+            if (txtSatisFiyati.Text == "" || txtSatisMiktari.Text == "" || cmbSatilacakUrun.SelectedItem == null)
             {
-                MessageBox.Show("hiç bir alan bos geçilemez");
+                MessageBox.Show("Hiçbir Alan Boş Geçilemez!");
                 return true;
             }
             else
@@ -37,23 +38,13 @@ namespace Borsa
                 return false;
             }
         }
-
-        private void SatisIslemleriFormu_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void txtSatisMiktari_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar);//sadece sayi ve kontrol
-
-
+            e.Handled = !char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar);//sadece sayi ve kontrol tuslari
         }
-
         private void txtSatisFiyati_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar);//sadece sayi ve kontrol
-
+            e.Handled = !char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar);//sadece sayi ve kontrol tuslari
         }
     }
 }

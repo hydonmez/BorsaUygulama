@@ -29,22 +29,22 @@ namespace Borsa
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnNesneYukleme = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAlis = new System.Windows.Forms.Button();
             this.btnSatis = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // btnNesneYukleme
             // 
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button1.Location = new System.Drawing.Point(21, 105);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(186, 23);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Hesaba Para ve Ürün Yükleme";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnNesneYukleme.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnNesneYukleme.Location = new System.Drawing.Point(21, 105);
+            this.btnNesneYukleme.Name = "btnNesneYukleme";
+            this.btnNesneYukleme.Size = new System.Drawing.Size(186, 23);
+            this.btnNesneYukleme.TabIndex = 11;
+            this.btnNesneYukleme.Text = "Hesaba Para ve Ürün Yükleme";
+            this.btnNesneYukleme.UseVisualStyleBackColor = true;
+            this.btnNesneYukleme.Click += new System.EventHandler(this.btnNesneYukleme_Click);
             // 
             // label1
             // 
@@ -80,14 +80,13 @@ namespace Borsa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1121, 453);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(241, 184);
+            this.Controls.Add(this.btnNesneYukleme);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAlis);
             this.Controls.Add(this.btnSatis);
             this.Name = "KullaniciIslemleriMenuForm";
             this.Text = "KullaniciIslemleriMenuForm";
-            this.Load += new System.EventHandler(this.KullaniciIslemleriMenuForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -95,7 +94,7 @@ namespace Borsa
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnNesneYukleme;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAlis;
         private System.Windows.Forms.Button btnSatis;
