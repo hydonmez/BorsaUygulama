@@ -23,6 +23,7 @@ namespace Borsa
         {
             KayitOlmaForm kayitOl = new KayitOlmaForm();
             kayitOl.Show();
+            this.WindowState = FormWindowState.Minimized;
         }
 
         private void btnGiris_Click(object sender, EventArgs e)
