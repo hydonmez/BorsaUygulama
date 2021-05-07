@@ -68,19 +68,29 @@ namespace Borsa
             e.Handled = !char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && !char.IsControl(e.KeyChar);//boşluk ve harf
         }
 
+        private void txtSoyad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && !char.IsControl(e.KeyChar);//boşluk ve harf
+        }
+
+        private void formuKapat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void formuKucult_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
         private void txtTC_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);//sadece sayisal degerlere ve kontrol islemlerine izin verir(delete tusu)
+            e.Handled = !char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar);//kontrol tuslari ve sayı
         }
 
         private void txtTel_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
-        }
-
-        private void txtSoyad_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && !char.IsControl(e.KeyChar);//boşluk ve harf
+            e.Handled = !char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar);//kontrol tuslari ve sayı2
         }
     }
 }

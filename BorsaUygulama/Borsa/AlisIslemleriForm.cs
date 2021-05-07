@@ -42,5 +42,16 @@ namespace Borsa
         {
             e.Handled = !char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar);//sadece sayi ve kontrol
         }
+
+        private void formuKucult_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+
+        }
+        private void formuKapat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            
+        }
     }
 }

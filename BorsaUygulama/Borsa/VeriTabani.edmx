@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="VeriTabaniModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AdminTbl">
+          <Key>
+            <PropertyRef Name="AdminId" />
+          </Key>
+          <Property Name="AdminId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdmiKullaniciAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AdminAd" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AdminSoyad" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AdminSifre" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AliciIstekTbl">
+          <Key>
+            <PropertyRef Name="AliciIstekId" />
+          </Key>
+          <Property Name="AliciIstekId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KullaniciId" Type="int" Nullable="false" />
+          <Property Name="IstenilenUrun" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IstekMiktari" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="IstekTarihi" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KullaniciTbl">
+          <Key>
+            <PropertyRef Name="KullaniciId" />
+          </Key>
+          <Property Name="KullaniciId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KullaniciAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="KullaniciAd" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="KullaniciSoyad" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="KullaniciTc" Type="nchar" MaxLength="11" Nullable="false" />
+          <Property Name="KullaniciSifre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="KullaniciTelefon" Type="nchar" MaxLength="11" Nullable="false" />
+          <Property Name="KullaniciMail" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="KullaniciAdres" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="HesaptakiPara" Type="money" Nullable="false" />
+          <Property Name="HesaptakiBugday" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="HesaptakiYulaf" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="HesaptakiPetrol" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OnayTbl">
+          <Key>
+            <PropertyRef Name="OnayId" />
+          </Key>
+          <Property Name="OnayId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KullaniciID" Type="int" Nullable="false" />
+          <Property Name="OnaylanacakNesne" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Miktar" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="OnayDurumu" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SatistakiUrunTbl">
+          <Key>
+            <PropertyRef Name="SatisId" />
+          </Key>
+          <Property Name="SatisId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KullaniciId" Type="int" Nullable="false" />
+          <Property Name="SatistakiNesne" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SatistakiMiktari" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="SatistakiFiyati" Type="money" Nullable="false" />
+          <Property Name="SatisIstekTarihi" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="VeriTabaniModelStoreContainer">
+          <EntitySet Name="AdminTbl" EntityType="Self.AdminTbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AliciIstekTbl" EntityType="Self.AliciIstekTbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KullaniciTbl" EntityType="Self.KullaniciTbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OnayTbl" EntityType="Self.OnayTbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SatistakiUrunTbl" EntityType="Self.SatistakiUrunTbl" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VeriTabaniModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AdminTbl">
+          <Key>
+            <PropertyRef Name="AdminId" />
+          </Key>
+          <Property Name="AdminId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdmiKullaniciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AdminAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AdminSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AdminSifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AliciIstekTbl">
+          <Key>
+            <PropertyRef Name="AliciIstekId" />
+          </Key>
+          <Property Name="AliciIstekId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KullaniciId" Type="Int32" Nullable="false" />
+          <Property Name="IstenilenUrun" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IstekMiktari" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="IstekTarihi" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="KullaniciTbl">
+          <Key>
+            <PropertyRef Name="KullaniciId" />
+          </Key>
+          <Property Name="KullaniciId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KullaniciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KullaniciAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KullaniciSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KullaniciTc" Type="String" MaxLength="11" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="KullaniciSifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KullaniciTelefon" Type="String" MaxLength="11" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="KullaniciMail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KullaniciAdres" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HesaptakiPara" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="HesaptakiBugday" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="HesaptakiYulaf" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="HesaptakiPetrol" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OnayTbl">
+          <Key>
+            <PropertyRef Name="OnayId" />
+          </Key>
+          <Property Name="OnayId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KullaniciID" Type="Int32" Nullable="false" />
+          <Property Name="OnaylanacakNesne" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Miktar" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="OnayDurumu" Type="Byte" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SatistakiUrunTbl">
+          <Key>
+            <PropertyRef Name="SatisId" />
+          </Key>
+          <Property Name="SatisId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KullaniciId" Type="Int32" Nullable="false" />
+          <Property Name="SatistakiNesne" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SatistakiMiktari" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="SatistakiFiyati" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="SatisIstekTarihi" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityContainer Name="VeriTabaniEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AdminTbl" EntityType="Self.AdminTbl" />
+          <EntitySet Name="AliciIstekTbl" EntityType="Self.AliciIstekTbl" />
+          <EntitySet Name="KullaniciTbl" EntityType="Self.KullaniciTbl" />
+          <EntitySet Name="OnayTbl" EntityType="Self.OnayTbl" />
+          <EntitySet Name="SatistakiUrunTbl" EntityType="Self.SatistakiUrunTbl" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="VeriTabaniModelStoreContainer" CdmEntityContainer="VeriTabaniEntities">
+          <EntitySetMapping Name="AdminTbl">
+            <EntityTypeMapping TypeName="VeriTabaniModel.AdminTbl">
+              <MappingFragment StoreEntitySet="AdminTbl">
+                <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+                <ScalarProperty Name="AdmiKullaniciAdi" ColumnName="AdmiKullaniciAdi" />
+                <ScalarProperty Name="AdminAd" ColumnName="AdminAd" />
+                <ScalarProperty Name="AdminSoyad" ColumnName="AdminSoyad" />
+                <ScalarProperty Name="AdminSifre" ColumnName="AdminSifre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AliciIstekTbl">
+            <EntityTypeMapping TypeName="VeriTabaniModel.AliciIstekTbl">
+              <MappingFragment StoreEntitySet="AliciIstekTbl">
+                <ScalarProperty Name="AliciIstekId" ColumnName="AliciIstekId" />
+                <ScalarProperty Name="KullaniciId" ColumnName="KullaniciId" />
+                <ScalarProperty Name="IstenilenUrun" ColumnName="IstenilenUrun" />
+                <ScalarProperty Name="IstekMiktari" ColumnName="IstekMiktari" />
+                <ScalarProperty Name="IstekTarihi" ColumnName="IstekTarihi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KullaniciTbl">
+            <EntityTypeMapping TypeName="VeriTabaniModel.KullaniciTbl">
+              <MappingFragment StoreEntitySet="KullaniciTbl">
+                <ScalarProperty Name="KullaniciId" ColumnName="KullaniciId" />
+                <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
+                <ScalarProperty Name="KullaniciAd" ColumnName="KullaniciAd" />
+                <ScalarProperty Name="KullaniciSoyad" ColumnName="KullaniciSoyad" />
+                <ScalarProperty Name="KullaniciTc" ColumnName="KullaniciTc" />
+                <ScalarProperty Name="KullaniciSifre" ColumnName="KullaniciSifre" />
+                <ScalarProperty Name="KullaniciTelefon" ColumnName="KullaniciTelefon" />
+                <ScalarProperty Name="KullaniciMail" ColumnName="KullaniciMail" />
+                <ScalarProperty Name="KullaniciAdres" ColumnName="KullaniciAdres" />
+                <ScalarProperty Name="HesaptakiPara" ColumnName="HesaptakiPara" />
+                <ScalarProperty Name="HesaptakiBugday" ColumnName="HesaptakiBugday" />
+                <ScalarProperty Name="HesaptakiYulaf" ColumnName="HesaptakiYulaf" />
+                <ScalarProperty Name="HesaptakiPetrol" ColumnName="HesaptakiPetrol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OnayTbl">
+            <EntityTypeMapping TypeName="VeriTabaniModel.OnayTbl">
+              <MappingFragment StoreEntitySet="OnayTbl">
+                <ScalarProperty Name="OnayId" ColumnName="OnayId" />
+                <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+                <ScalarProperty Name="OnaylanacakNesne" ColumnName="OnaylanacakNesne" />
+                <ScalarProperty Name="Miktar" ColumnName="Miktar" />
+                <ScalarProperty Name="OnayDurumu" ColumnName="OnayDurumu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SatistakiUrunTbl">
+            <EntityTypeMapping TypeName="VeriTabaniModel.SatistakiUrunTbl">
+              <MappingFragment StoreEntitySet="SatistakiUrunTbl">
+                <ScalarProperty Name="SatisId" ColumnName="SatisId" />
+                <ScalarProperty Name="KullaniciId" ColumnName="KullaniciId" />
+                <ScalarProperty Name="SatistakiNesne" ColumnName="SatistakiNesne" />
+                <ScalarProperty Name="SatistakiMiktari" ColumnName="SatistakiMiktari" />
+                <ScalarProperty Name="SatistakiFiyati" ColumnName="SatistakiFiyati" />
+                <ScalarProperty Name="SatisIstekTarihi" ColumnName="SatisIstekTarihi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

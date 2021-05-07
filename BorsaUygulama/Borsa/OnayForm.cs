@@ -34,10 +34,21 @@ namespace Borsa
                             Onaylanacak_Nesne = onay.OnaylanacakNesne,
                             Onaylanacak_Miktar = onay.Miktar
                         };
+           
             grdOnayTablosu.DataSource = sorgu.ToList(); //Olusan liste grdOnayTablosu'na kaynak olarak verildi.
+            if(!sorgu.Any()) //listede hic eleman yoksa butonlar kapatılır 
+            {
+              
+                btnReddet.Enabled = false;
+                btnOnayla.Enabled = false;
+                MessageBox.Show("Güzel Haber Yapılacak Bir İs Yok");
+            }
+         
+            
         }
         private void OnayForm_Load(object sender, EventArgs e)
         {
+            
             TabloyuGoster(); // Form ilk acildiginda bekleyen onaylar grdOnayTablosu'nda gosterilir.          
         }
 
@@ -59,12 +70,21 @@ namespace Borsa
 
         public void OnaySil()
         {
-         
-            var sorgu = veriTabani.OnayTbl.Find(grdOnayTablosu.SelectedRows[0].Cells[0].Value); //Tablodan onayId'sine gore veriyi bulur
-            veriTabani.OnayTbl.Remove(sorgu);//Bulunan veri silinir.
-            veriTabani.SaveChanges(); //Degisiklikler veritabanina kaydedilir.
-            TabloyuGoster();//Tablonun son guncel hali gosterilir.
+          var sorgu = veriTabani.OnayTbl.Find(grdOnayTablosu.SelectedRows[0].Cells[0].Value); //Tablodan onayId'sine gore veriyi bulur
+          veriTabani.OnayTbl.Remove(sorgu);//Bulunan veri silinir.
+          veriTabani.SaveChanges(); //Degisiklikler veritabanina kaydedilir.
+          TabloyuGoster();//Tablonun son guncel hali gosterilir.
+            
+        }
 
+        private void formuKucult_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void formuKapat_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

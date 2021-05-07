@@ -13,7 +13,7 @@ namespace Borsa
         public static int girisId;//giris yapan kullaniciyla ilgili islemleri yapabilmek icin sisteme giren kullanicin id'si girisId'de statik ve her yerden ulasilabilir olacak sekilde tanmlandi
         VeriTabaniEntities veriTabani = new VeriTabaniEntities();//veritabaniyla ilgili islemleri yapabilmek icin nesne olusturuldu
 
-        public void GirisYap(KullaniciTbl kullanici)//giris yapan kullanici bilgileri parametre olarak alınır
+        public Boolean GirisYap(KullaniciTbl kullanici)//giris yapan kullanici bilgileri parametre olarak alınır
         {
             var sonuc = from gecici in veriTabani.KullaniciTbl
                         where gecici.KullaniciAdi == kullanici.KullaniciAdi
@@ -25,13 +25,14 @@ namespace Borsa
             }
             if (sonuc.Any())//sonuc listesinde bir kayit varsa true döner ve kullanici islemleri menusunu acar 
             {
-
-                KullaniciIslemleriMenuForm kullaniciIslemlerimenu = new KullaniciIslemleriMenuForm();
-                kullaniciIslemlerimenu.Show();
+                return true;
+                
             }
             else //eslesen bir kullanici yoksa ekranda hata mesaji gosterir.
             {
+               
                 MessageBox.Show("Hatali Giris Yaptiniz!");
+                return false;
             }
         }
     }

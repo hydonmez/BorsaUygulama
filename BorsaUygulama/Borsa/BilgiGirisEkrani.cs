@@ -19,12 +19,6 @@ namespace Borsa
             InitializeComponent();
         }
 
-        private void BilgiGirisEkrani_Load(object sender, EventArgs e)
-        {
-            var sorgu = from gecici in veriTabani.KullaniciTbl where gecici.KullaniciId == KullaniciGirisIslemleriManager.girisId select gecici;
-            dataGridView1.DataSource = sorgu.ToList();
-        }
-
         private void btnİstek_Click(object sender, EventArgs e)
         {
             if (!BosGecildiMi())
@@ -55,6 +49,44 @@ namespace Borsa
         private void txtMiktar_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsNumber(e.KeyChar)&&!char.IsControl(e.KeyChar);//sadece sayi ve kontrol
+
+        }
+
+        private void formuKucult_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void formuKapat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void TabloyuGoster()
+        {
+            var sorgu = from gecici in veriTabani.KullaniciTbl where gecici.KullaniciId == KullaniciGirisIslemleriManager.girisId select new
+            {
+                KullaniciID = gecici.KullaniciId,
+                Adınız_Soyadınız = gecici.KullaniciAd + " " + gecici.KullaniciSoyad,
+                Paranız_Tl = gecici.HesaptakiPara,
+                Buğdayınız_Kg = gecici.HesaptakiBugday,
+                Yulafınız_Kg = gecici.HesaptakiYulaf,
+                Petrolünüz_Varil = gecici.HesaptakiPetrol
+            };
+            grdHesapBilgileriTablo.DataSource = sorgu.ToList();
+        }
+
+        private void BilgiGirisEkrani_Load(object sender, EventArgs e)
+        {
+            TabloyuGoster();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void cmbİstek_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

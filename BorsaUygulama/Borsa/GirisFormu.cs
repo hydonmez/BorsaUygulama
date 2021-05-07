@@ -29,7 +29,12 @@ namespace Borsa
         {
             kullanici.KullaniciAdi = txtKullaniciAdi.Text;
             kullanici.KullaniciSifre = txtSifre.Text;
-            girisIslemleri.GirisYap(kullanici);
+            if(girisIslemleri.GirisYap(kullanici))
+            {
+                KullaniciIslemleriMenuForm kullaniciIslemlerimenu = new KullaniciIslemleriMenuForm();
+                kullaniciIslemlerimenu.Show();
+                this.WindowState = FormWindowState.Minimized;
+            }
         }
 
         private void btnAdminGiris_Click(object sender, EventArgs e)
@@ -40,7 +45,16 @@ namespace Borsa
             admin.AdminSifre = txtAdminSifre.Text;
             adminIslemleri.GirisYap(admin);
 
-        
+
+        }
+        private void formuKapat_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void formuKucult_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }
