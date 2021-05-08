@@ -1,19 +1,17 @@
-# BorsaUygulama
+# Borsa Uygulaması
 
-Proje Ekip Üyeleri:
-------
-1)Tuba AKBAŞ                202803008
---
-2)Hüseyin Yasin DÖNMEZ      202802003
-----
+## Proje Ekip Üyeleri:
 
--------
-Proje Açıklaması:
--
+* Tuba AKBAŞ                202803008
+* Hüseyin Yasin DÖNMEZ      202802003
+
+
+## Proje Açıklaması:
+
 Bu proje satıcıları ve alıcıları bir araya getirerek. Bir borsa mantığında pazar oluşturulmasını sağlar alıcılar en düşük fiyattan istedikleri ürünleri alırken satıcılarda ürünlerini satabilirler.
 
-Projenin çalıştırılması
----
+## Projenin  Çalıştırılması
+
 Projeyi çalıştırabilmek için proje klasöründe bulunan
 VeriTabani.bacpac dosyasını microsoft sql server programınıza aktarmanız gerekmektedir
 proje dosyaları içinde bulunan VeriTabani.edmx kısmını ve app config dosyasını visual studiodan silerek 
