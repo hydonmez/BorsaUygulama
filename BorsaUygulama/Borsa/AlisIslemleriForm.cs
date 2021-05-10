@@ -16,16 +16,16 @@ namespace Borsa
         {
             InitializeComponent();
         }
-       
+
         private void btnAlisIstegi_Click(object sender, EventArgs e)
         {
-            if (!BosMu())
+            if (!BosMu())//hicnir alan bos degilse alisistegi sisteme kayit edilir
             {
                 AlisIslemleriManager alisIslemleri = new AlisIslemleriManager();
                 alisIslemleri.AlisIstegiGonder(cmbAlınacakUrun.Text, Convert.ToInt32(txtAlisMiktari.Text));
-            }           
+            }
         }
-        public Boolean BosMu()
+        private Boolean BosMu()//hergangi bir alanin bos olup olmadigini kontrol ediyoruz
         {
             if (txtAlisMiktari.Text == "" || cmbAlınacakUrun.SelectedItem == null)
             {
@@ -51,7 +51,7 @@ namespace Borsa
         private void formuKapat_Click(object sender, EventArgs e)
         {
             this.Close();
-            
+
         }
     }
 }

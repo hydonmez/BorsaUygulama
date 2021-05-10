@@ -12,7 +12,7 @@ namespace Borsa
 {
     public partial class SatisIslemleriFormu : Form
     {
-        SatisIslemleriManager satisIslemleri = new SatisIslemleriManager();
+        private SatisIslemleriManager satisIslemleri = new SatisIslemleriManager();
         public SatisIslemleriFormu()
         {
             InitializeComponent();
@@ -25,7 +25,7 @@ namespace Borsa
                 satisIslemleri.SatisIstegiGonder(cmbSatilacakUrun.Text, Convert.ToInt32(txtSatisMiktari.Text), Convert.ToInt32(txtSatisFiyati.Text));
             }
         }
-        public Boolean BosGecildiMi()
+        private Boolean BosGecildiMi()
         {
             //Alanlari bos gecilip gecilmedigi kontrol edilir.
             if (txtSatisFiyati.Text == "" || txtSatisMiktari.Text == "" || cmbSatilacakUrun.SelectedItem == null)
@@ -50,17 +50,11 @@ namespace Borsa
         private void formuKucult_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-
         }
 
         private void formuKapat_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

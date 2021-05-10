@@ -7,9 +7,9 @@ using System.Windows.Forms;
 
 namespace Borsa
 {
-    public class KullaniciManager
+    public class KullaniciKayitOlmaIslemleriManager
     {
-        VeriTabaniEntities veriTabani = new VeriTabaniEntities();
+        private VeriTabaniEntities veriTabani = new VeriTabaniEntities();
         public Boolean KullaniciEkle(KullaniciTbl kullanici) //Kullanici ekleme islemi icin Kullanici nesnesi alinir.
         {
             if (!KullaniciAdKontrol(kullanici)) // Kullanici adi daha önce yoksa ekleme islemleri gerceklestirilir.
@@ -26,7 +26,7 @@ namespace Borsa
                 return false;
             }
         }
-        public Boolean KullaniciAdKontrol(KullaniciTbl kullanici)  //Ayni kullanici adina sahip bir kullanicinin olup olmadigi kontrol edilir 
+        private Boolean KullaniciAdKontrol(KullaniciTbl kullanici)  //Ayni kullanici adina sahip bir kullanicinin olup olmadigi kontrol edilir 
         {
             //Kullanici tablosundan parametre olarak gelen kullanici adi ile ayni kayit varsa kullanicilar listesine eklenir.
             var kullanicilar = from gecici in veriTabani.KullaniciTbl where gecici.KullaniciAdi == kullanici.KullaniciAdi select gecici;

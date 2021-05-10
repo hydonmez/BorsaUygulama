@@ -94,7 +94,7 @@
     <Compile Include="KullaniciIslemleriMenuForm.Designer.cs">
       <DependentUpon>KullaniciIslemleriMenuForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="KullaniciManager.cs" />
+    <Compile Include="KullaniciKayitOlmaIslemleriManager.cs" />
     <Compile Include="KullaniciTbl.cs">
       <DependentUpon>VeriTabani.tt</DependentUpon>
     </Compile>
@@ -108,7 +108,7 @@
     <Compile Include="OnayTbl.cs">
       <DependentUpon>VeriTabani.tt</DependentUpon>
     </Compile>
-    <Compile Include="OtomatikSatisGerceklestirme.cs" />
+    <Compile Include="OtomatikSatisGerceklestirmeManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SatisIslemleriFormu.cs">

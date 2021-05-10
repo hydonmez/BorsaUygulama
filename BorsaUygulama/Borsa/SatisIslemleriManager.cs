@@ -9,8 +9,8 @@ namespace Borsa
 {
     public class SatisIslemleriManager
     {
-        VeriTabaniEntities veriTabani = new VeriTabaniEntities();
-        OtomatikSatisGerceklestirme otomatikSatis = new OtomatikSatisGerceklestirme();
+        private VeriTabaniEntities veriTabani = new VeriTabaniEntities();
+        private OtomatikSatisGerceklestirmeManager otomatikSatis = new OtomatikSatisGerceklestirmeManager();
         public void SatisIstegiGonder(string satilacakUrun, int miktar, int fiyati)//Parametre olarak satilacak ürünle ilgili bilgiler alinir
         {
 
@@ -18,7 +18,7 @@ namespace Borsa
             {
                 SatistakiUrunTbl satistakiUrun = new SatistakiUrunTbl //Satis tablosundan bir nesne yaratilir.
                 {
-                    KullaniciId = KullaniciGirisIslemleriManager.girisId, //Yaratilan nesnenin ilgili bilgileri formdan parametra olarak alinir
+                    KullaniciId = KullaniciGirisIslemleriManager.g_girisId, //Yaratilan nesnenin ilgili bilgileri formdan parametra olarak alinir
                     SatistakiNesne = satilacakUrun,
                     SatistakiFiyati = fiyati,
                     SatistakiMiktari = miktar,
@@ -41,7 +41,7 @@ namespace Borsa
             decimal hesaptakiUrunMiktari = 0;
             //Giris yapan kullanici icin Satis Tablosunda bulunan aynı urun için daha önceki satis taleplerinin toplam miktarını hesaplar.
             var sorgu1 = from satistakiUrun in veriTabani.SatistakiUrunTbl
-                         where satistakiUrun.KullaniciId == KullaniciGirisIslemleriManager.girisId &&
+                         where satistakiUrun.KullaniciId == KullaniciGirisIslemleriManager.g_girisId &&
                          satistakiUrun.SatistakiNesne == satilacakUrun
                          select satistakiUrun;
 
@@ -50,7 +50,7 @@ namespace Borsa
                 satistakiToplamUrun += satis.SatistakiMiktari;
             }
             //Giris yapan kullanicinin hesabindaki mevcut urununun miktarını hesaplar.
-            var sorgu = from gecici in veriTabani.KullaniciTbl where gecici.KullaniciId == KullaniciGirisIslemleriManager.girisId select gecici;
+            var sorgu = from gecici in veriTabani.KullaniciTbl where gecici.KullaniciId == KullaniciGirisIslemleriManager.g_girisId select gecici;
             foreach (var item in sorgu)
             {
                 string deger = "Hesaptaki" + satilacakUrun;

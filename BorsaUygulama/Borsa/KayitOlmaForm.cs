@@ -16,7 +16,7 @@ namespace Borsa
         {
             InitializeComponent();
         }
-        private KullaniciManager kullaniciManager = new KullaniciManager();
+        private KullaniciKayitOlmaIslemleriManager kullaniciManager = new KullaniciKayitOlmaIslemleriManager();
         private void btnKayitOl_Click(object sender, EventArgs e)
         {
             if (!BosGecildiMi()) //Hicbir alan bos gecilmediyse kullaniciyi ekler.
@@ -55,7 +55,7 @@ namespace Borsa
             txtTC.Text == "" || txtTel.Text == "" || txtSifre.Text == "" || txtMail.Text == "")
             {
                 MessageBox.Show("Hic bir alan boş gecilemez");
-                return true; 
+                return true;
             }
             else
             {

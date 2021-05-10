@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 namespace Borsa
 {
-    public class OtomatikSatisGerceklestirme
+    public class OtomatikSatisGerceklestirmeManager
     {
-        VeriTabaniEntities veriTabani = new VeriTabaniEntities();
+        private VeriTabaniEntities veriTabani = new VeriTabaniEntities();
         private List<AliciIstekTbl> AliciIstekleriniBul(string satilanUrun) //Satilmak istenen urunu parametre olarak alir
         {
             //Alici Istek tablosundan alici isteklerini, istek tarihine göre getirir Istek tarihi aynı ise istek numarasina gore siralanir.
@@ -66,7 +66,7 @@ namespace Borsa
                             veriTabani.AliciIstekTbl.Remove(sorgu);//AliciIstekTbl'de bulunan ilgili alis istegi Remove metoduyla  silinir.
                         }
                     }
-                   
+
                     foreach (var saticiHesabi in HesabiGetir(saticiIstekleri.KullaniciId))//saticinin hesabı getirilir ve hesabinda gerekli alis veris islmeleri gerceklestirilir
                     {
                         string deger = "Hesaptaki" + islemYapilacakUrun;
@@ -94,7 +94,7 @@ namespace Borsa
             var hesapBilgisi = from gecici in veriTabani.KullaniciTbl where gecici.KullaniciId == kullaniciId select gecici;
             return hesapBilgisi.ToList();
         }
-        public decimal AlicininParasiniGetir(int kullaniciID)//parametre olarak kullanici id alır
+        private decimal AlicininParasiniGetir(int kullaniciID)//parametre olarak kullanici id alır
         {
             //Kullanici tablosundaki kullanici id parametre olarak gelen kullanici id'sine esit olan kullaniciyi listeye ekler
             var kullanici = from gecici in veriTabani.KullaniciTbl where gecici.KullaniciId == kullaniciID select gecici;

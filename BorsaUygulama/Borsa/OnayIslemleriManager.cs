@@ -10,9 +10,9 @@ namespace Borsa
 {
     class OnayIslemleriManager
     {
-        VeriTabaniEntities veriTabani = new VeriTabaniEntities();
+        private VeriTabaniEntities veriTabani = new VeriTabaniEntities();
         public void Onaylama(OnayTbl onaylanacak) //Parametre olarak onaylanacak nesne alinir
-        {   
+        {
             //Onay tablosundaki kullaniciId ye gore ilgili kullanici verisi getirilir.
             var sorgu = from kullanici in veriTabani.KullaniciTbl where kullanici.KullaniciId == onaylanacak.KullaniciID select kullanici;
 
@@ -21,7 +21,7 @@ namespace Borsa
                 string deger = "Hesaptaki" + onaylanacak.OnaylanacakNesne; //Gelen onaylanacak nesnenin ön adina "Hesaptaki" kelimesini ekliyoruz
 
                 //Kullanici tablosundan onaylanmak istenen nesnenin mevcut miktari getirilir ve Decimal tipine cevrilir.
-                var mevcutMiktar =Convert.ToDecimal(kullanici.GetType().GetProperty(deger).GetValue(kullanici, null));
+                var mevcutMiktar = Convert.ToDecimal(kullanici.GetType().GetProperty(deger).GetValue(kullanici, null));
 
                 mevcutMiktar = mevcutMiktar + onaylanacak.Miktar; //Mevcut miktara onaylanacak miktar eklenir.
 
@@ -30,8 +30,6 @@ namespace Borsa
 
             }
             veriTabani.SaveChanges();//Degisiklikler veritabanina kaydedilir.
-
-
         }
     }
-    }
+}

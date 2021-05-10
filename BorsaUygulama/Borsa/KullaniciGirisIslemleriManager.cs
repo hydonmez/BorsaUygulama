@@ -10,8 +10,8 @@ namespace Borsa
    public class KullaniciGirisIslemleriManager
     {
 
-        public static int girisId;//giris yapan kullaniciyla ilgili islemleri yapabilmek icin sisteme giren kullanicin id'si girisId'de statik ve her yerden ulasilabilir olacak sekilde tanmlandi
-        VeriTabaniEntities veriTabani = new VeriTabaniEntities();//veritabaniyla ilgili islemleri yapabilmek icin nesne olusturuldu
+        public static int g_girisId;//giris yapan kullaniciyla ilgili islemleri yapabilmek icin sisteme giren kullanicin id'si girisId'de statik ve her yerden ulasilabilir olacak sekilde tanmlandi
+        private VeriTabaniEntities veriTabani = new VeriTabaniEntities();//veritabaniyla ilgili islemleri yapabilmek icin nesne olusturuldu
 
         public Boolean GirisYap(KullaniciTbl kullanici)//giris yapan kullanici bilgileri parametre olarak alınır
         {
@@ -21,7 +21,7 @@ namespace Borsa
             //texten gelen kullaniciyla veritabanindaki kullanci bilgileri eslesen kullanici alır ve listede tutar
             foreach (var kullaniciBilgileri in sonuc)
             {
-                girisId = kullaniciBilgileri.KullaniciId;
+                g_girisId = kullaniciBilgileri.KullaniciId;
             }
             if (sonuc.Any())//sonuc listesinde bir kayit varsa true döner ve kullanici islemleri menusunu acar 
             {

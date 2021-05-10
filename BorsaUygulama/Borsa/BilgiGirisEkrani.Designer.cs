@@ -112,7 +112,7 @@ namespace Borsa
             this.cmbİstek.Name = "cmbİstek";
             this.cmbİstek.Size = new System.Drawing.Size(157, 27);
             this.cmbİstek.TabIndex = 10;
-            this.cmbİstek.SelectedIndexChanged += new System.EventHandler(this.cmbİstek_SelectedIndexChanged);
+         
             // 
             // grdHesapBilgileriTablo
             // 
@@ -203,7 +203,7 @@ namespace Borsa
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1126, 194);
             this.panel1.TabIndex = 19;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+          
             // 
             // label3
             // 

@@ -10,7 +10,7 @@ namespace Borsa
     public class AlisIslemleriManager
     {
         VeriTabaniEntities veriTabani = new VeriTabaniEntities();
-        OtomatikSatisGerceklestirme otomatikSatis = new OtomatikSatisGerceklestirme();
+        OtomatikSatisGerceklestirmeManager otomatikSatis = new OtomatikSatisGerceklestirmeManager();
         public void AlisIstegiGonder(string alinacakUrun,int miktar) //Parametre olarak alinacak ürünle ilgili bilgiler alinir
         {
             if (ParaYeterliMi()) //Alicinin parasi yeterli ise alis istegi kabul edilir.
@@ -18,7 +18,7 @@ namespace Borsa
                 AliciIstekTbl alisIstek = new AliciIstekTbl
                 {   
                     //Formdan alinacak urunle ilgili bilgiler getirilir ve aktarilir.
-                    KullaniciId = KullaniciGirisIslemleriManager.girisId,
+                    KullaniciId = KullaniciGirisIslemleriManager.g_girisId,
                     IstenilenUrun = alinacakUrun,
                     IstekMiktari = miktar,
                     IstekTarihi = Convert.ToDateTime(DateTime.Now.ToLongDateString())
@@ -34,10 +34,10 @@ namespace Borsa
                 MessageBox.Show("Hesabınızda Para Bulumamaktadır!");
             }
         }
-        public Boolean ParaYeterliMi() //Kullanicinin hesabindaki paranin 0'dan buyuk oldugunu kontrol eder.
+        private Boolean ParaYeterliMi() //Kullanicinin hesabindaki paranin 0'dan buyuk oldugunu kontrol eder.
         {   
             //Giris yapan kullanicinin Id'si ile kullanici tablosundaki kullanici Id'si eslesen veri listeye eklenir.
-            var kullanici = from gecici in veriTabani.KullaniciTbl where gecici.KullaniciId == KullaniciGirisIslemleriManager.girisId select gecici;
+            var kullanici = from gecici in veriTabani.KullaniciTbl where gecici.KullaniciId == KullaniciGirisIslemleriManager.g_girisId select gecici;
             foreach (var kullaniciBilgileri in kullanici)
             {
                 if (kullaniciBilgileri.HesaptakiPara > 0) //Hesaptaki para 0'dan buyuk ise alis izni verilir.
