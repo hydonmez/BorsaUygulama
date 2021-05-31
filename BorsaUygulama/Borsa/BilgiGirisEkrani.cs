@@ -69,7 +69,7 @@ namespace Borsa
                         {
                             KullaniciID = gecici.KullaniciId,
                             Adınız_Soyadınız = gecici.KullaniciAd + " " + gecici.KullaniciSoyad,
-                            Paranız_Tl = gecici.HesaptakiPara,
+                            Paranız_Tl = gecici.HesaptakiTL,
                             Buğdayınız_Kg = gecici.HesaptakiBugday,
                             Yulafınız_Kg = gecici.HesaptakiYulaf,
                             Petrolünüz_Varil = gecici.HesaptakiPetrol

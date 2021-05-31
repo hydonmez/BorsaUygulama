@@ -104,7 +104,9 @@ namespace Borsa
             this.cmbİstek.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(241)))), ((int)(((byte)(254)))));
             this.cmbİstek.FormattingEnabled = true;
             this.cmbİstek.Items.AddRange(new object[] {
-            "Para",
+            "TL",
+            "Euro",
+            "Dolar",
             "Bugday",
             "Petrol",
             "Yulaf"});
@@ -112,7 +114,6 @@ namespace Borsa
             this.cmbİstek.Name = "cmbİstek";
             this.cmbİstek.Size = new System.Drawing.Size(157, 27);
             this.cmbİstek.TabIndex = 10;
-         
             // 
             // grdHesapBilgileriTablo
             // 
@@ -203,7 +204,6 @@ namespace Borsa
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1126, 194);
             this.panel1.TabIndex = 19;
-          
             // 
             // label3
             // 

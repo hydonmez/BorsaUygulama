@@ -73,12 +73,12 @@ namespace Borsa
                         var x = Convert.ToDecimal(saticiHesabi.GetType().GetProperty(deger).GetValue(saticiHesabi, null));//Saticinin hesabindan sattigi urunun bilgisi getirilir
                         x -= alicininAldigiUrun; //hesaptaki mevcut urunden alicinin aldigi urun cikarilir 
                         saticiHesabi.GetType().GetProperty(deger).SetValue(saticiHesabi, x);//saticinin ilgili urunler ilgili yeni stogu kullanici hesabında güncellenir
-                        saticiHesabi.HesaptakiPara += saticininKazandigiPara;//satistan kazandigi para hesabına eklenir
+                        saticiHesabi.HesaptakiTL += saticininKazandigiPara;//satistan kazandigi para hesabına eklenir
                     }
 
                     foreach (var item2 in HesabiGetir(alisIstekleri.KullaniciId))//alicinin hesabı getirilir ve hesabinda gerekli alis veris islmeleri gerceklestirilir
                     {
-                        item2.HesaptakiPara -= saticininKazandigiPara; //aliciya verdiği para hesabından çikarilir ve mevcut bakiyesi güncellenir
+                        item2.HesaptakiTL -= saticininKazandigiPara; //aliciya verdiği para hesabından çikarilir ve mevcut bakiyesi güncellenir
                         string deger = "Hesaptaki" + islemYapilacakUrun;
                         var x = Convert.ToDecimal(item2.GetType().GetProperty(deger).GetValue(item2, null));//alinan urunle ilgili alicinin hesabindaki urun miktari getirilir
                         x += alicininAldigiUrun;//gelen urun miktarına yeni alinan urun miktari eklenir
@@ -100,7 +100,7 @@ namespace Borsa
             var kullanici = from gecici in veriTabani.KullaniciTbl where gecici.KullaniciId == kullaniciID select gecici;
             foreach (var item in kullanici)
             {
-                return Convert.ToDecimal(item.HesaptakiPara);//kullanicinin parasini geri doner
+                return Convert.ToDecimal(item.HesaptakiTL);//kullanicinin parasini geri doner
             }
             return 0;
         }

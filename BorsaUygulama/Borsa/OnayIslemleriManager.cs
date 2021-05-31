@@ -18,16 +18,28 @@ namespace Borsa
 
             foreach (var kullanici in sorgu)
             {
-                string deger = "Hesaptaki" + onaylanacak.OnaylanacakNesne; //Gelen onaylanacak nesnenin ön adina "Hesaptaki" kelimesini ekliyoruz
 
-                //Kullanici tablosundan onaylanmak istenen nesnenin mevcut miktari getirilir ve Decimal tipine cevrilir.
-                var mevcutMiktar = Convert.ToDecimal(kullanici.GetType().GetProperty(deger).GetValue(kullanici, null));
+                if (onaylanacak.OnaylanacakNesne == "Euro" || onaylanacak.OnaylanacakNesne == "Dolar" || onaylanacak.OnaylanacakNesne == "Pound")
+                {
+                    //onaylanacak nesne icin kur bilgisi getirmek icin ilgili sınıftan bir nesne yaratıldı
+                    KurHesapla kurIslemleri = new KurHesapla();
+                    kullanici.HesaptakiTL += (kurIslemleri.KurBilgisiGetir(onaylanacak.OnaylanacakNesne) * onaylanacak.Miktar);//sorgudan dönen kur bilgisiyle miktar çarpılarak tl olarak kullanicinin hesabina yatırıldı.
+                    MessageBox.Show("Onaylanma İşlemi Gerçekleştirildi");
+                }
+                else
+                {
+                    //Gelen onaylanacak nesnenin ön adina "Hesaptaki" kelimesini ekliyoruz
+                    string deger = "Hesaptaki" + onaylanacak.OnaylanacakNesne; 
 
-                mevcutMiktar = mevcutMiktar + onaylanacak.Miktar; //Mevcut miktara onaylanacak miktar eklenir.
+                    //Kullanici tablosundan onaylanmak istenen nesnenin mevcut miktari getirilir ve Decimal tipine cevrilir.
+                    var mevcutMiktar = Convert.ToDecimal(kullanici.GetType().GetProperty(deger).GetValue(kullanici, null));
 
-                kullanici.GetType().GetProperty(deger).SetValue(kullanici, mevcutMiktar); //Kullanici tablosundan onaylanmak istenen nesnenin mevcut miktari yeni olusan mevcut miktar ile degistirilir. 
-                MessageBox.Show("Onaylanma İşlemi Gerçekleştirildi");
-
+                    mevcutMiktar = mevcutMiktar + onaylanacak.Miktar; //Mevcut miktara onaylanacak miktar eklenir.
+                    
+                    //Kullanici tablosundan onaylanmak istenen nesnenin mevcut miktari yeni olusan mevcut miktar ile degistirilir. 
+                    kullanici.GetType().GetProperty(deger).SetValue(kullanici, mevcutMiktar); 
+                    MessageBox.Show("Onaylanma İşlemi Gerçekleştirildi");
+                }
             }
             veriTabani.SaveChanges();//Degisiklikler veritabanina kaydedilir.
         }
