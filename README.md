@@ -8,7 +8,7 @@
 
 ## Proje Açıklaması:
 
-Bu proje satıcıları ve alıcıları bir araya getirerek. Bir borsa mantığında pazar oluşturulmasını sağlar alıcılar en düşük fiyattan istedikleri ürünleri alırken satıcılarda ürünlerini satabilirler.
+Bu proje satıcıları ve alıcıları bir araya getirerek. Bir borsa mantığında pazar oluşturulmasını sağlar alıcılar belirlediği fiyati geçmemek şartıyla en düşük fiyattan istedikleri ürünleri alırken satıcılarda ürünlerini satabilmektedir.Aynı zamanda alıcıların aldığı ürünler ve satıcıların sattiği ürünler istenirse kullanıcılar tarafından excel formatında belli tarihler arasında rapor alabilme imkanı sunmaktadır. Proje merkez bankası döviz kurlarından(pound,usd,euro)parabirimlerinin verilerini çekerek admin onay esnasındaki döviz kurları üzerinden kullaniciların onaya sundukları döviz türünden paraları tl olarak hesaplarına yatmaktadır.Projede alıcı taraftan %1 olarak komisyon kesilerek şirketin hesabına yatırılmaktadır.Proje tüm alış ve satiş bilgilerini veritabanına kaydetmektedir.
 
 ## Projenin  Çalıştırılması
 
