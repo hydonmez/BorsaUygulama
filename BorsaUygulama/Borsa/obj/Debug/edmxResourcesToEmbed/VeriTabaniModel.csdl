@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VeriTabaniModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AdminTbl">
+    <Key>
+      <PropertyRef Name="AdminId" />
+    </Key>
+    <Property Name="AdminId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdmiKullaniciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AdminAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AdminSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AdminSifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AliciIstekTbl">
+    <Key>
+      <PropertyRef Name="AliciIstekId" />
+    </Key>
+    <Property Name="AliciIstekId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KullaniciId" Type="Int32" Nullable="false" />
+    <Property Name="IstenilenUrun" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IstekMiktari" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IstekTarihi" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="IstekFiyati" Type="Decimal" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="AliciLog">
+    <Key>
+      <PropertyRef Name="İslemId" />
+    </Key>
+    <Property Name="İslemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KullaniciId" Type="Int32" Nullable="false" />
+    <Property Name="AlınanUrun" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AlisMiktari" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="AlisFiyati" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="AlisTarihi" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AlistakiVergi" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="ToplamHarcama" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KullaniciTbl">
+    <Key>
+      <PropertyRef Name="KullaniciId" />
+    </Key>
+    <Property Name="KullaniciId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KullaniciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="KullaniciAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="KullaniciSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="KullaniciTc" Type="String" MaxLength="11" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="KullaniciSifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="KullaniciTelefon" Type="String" MaxLength="11" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="KullaniciMail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="KullaniciAdres" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="HesaptakiTL" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="HesaptakiBugday" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="HesaptakiYulaf" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="HesaptakiPetrol" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OnayTbl">
+    <Key>
+      <PropertyRef Name="OnayId" />
+    </Key>
+    <Property Name="OnayId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KullaniciID" Type="Int32" Nullable="false" />
+    <Property Name="OnaylanacakNesne" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Miktar" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="OnayDurumu" Type="Byte" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SatisLog">
+    <Key>
+      <PropertyRef Name="İslemId" />
+    </Key>
+    <Property Name="İslemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KullaniciId" Type="Int32" Nullable="false" />
+    <Property Name="SatilanUrun" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SatisMiktari" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="SatisFiyati" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="SatisTarihi" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ToplamKazanc" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SatistakiUrunTbl">
+    <Key>
+      <PropertyRef Name="SatisId" />
+    </Key>
+    <Property Name="SatisId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KullaniciId" Type="Int32" Nullable="false" />
+    <Property Name="SatistakiNesne" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SatistakiMiktari" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="SatistakiFiyati" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="SatisIstekTarihi" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="SirketTbl">
+    <Key>
+      <PropertyRef Name="SirketId" />
+    </Key>
+    <Property Name="SirketId" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="SirketKazanc" Type="Decimal" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityContainer Name="VeriTabaniEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AdminTbl" EntityType="Self.AdminTbl" />
+    <EntitySet Name="AliciIstekTbl" EntityType="Self.AliciIstekTbl" />
+    <EntitySet Name="AliciLog" EntityType="Self.AliciLog" />
+    <EntitySet Name="KullaniciTbl" EntityType="Self.KullaniciTbl" />
+    <EntitySet Name="OnayTbl" EntityType="Self.OnayTbl" />
+    <EntitySet Name="SatisLog" EntityType="Self.SatisLog" />
+    <EntitySet Name="SatistakiUrunTbl" EntityType="Self.SatistakiUrunTbl" />
+    <EntitySet Name="SirketTbl" EntityType="Self.SirketTbl" />
+  </EntityContainer>
+</Schema>

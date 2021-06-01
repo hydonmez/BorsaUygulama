@@ -58,6 +58,7 @@ namespace Borsa
             this.btnAlisIstegi.TabIndex = 23;
             this.btnAlisIstegi.Text = "Alış İsteği Gönder";
             this.btnAlisIstegi.UseVisualStyleBackColor = false;
+            this.btnAlisIstegi.Click += new System.EventHandler(this.btnAlisIstegi_Click);
             // 
             // label2
             // 

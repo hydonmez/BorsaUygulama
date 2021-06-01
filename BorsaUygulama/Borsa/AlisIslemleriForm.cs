@@ -16,54 +16,43 @@ namespace Borsa
         {
             InitializeComponent();
         }
-        VeriTabaniEntities veriTabani = new VeriTabaniEntities();
-        OtomatikSatisGerceklestirmeManager otomatikSatis = new OtomatikSatisGerceklestirmeManager();
-        public void AlisIstegiGonder(string alinacakUrun, int miktar, decimal fiyat) //Parametre olarak alinacak ürünle ilgili bilgiler alinir
+
+        private void btnAlisIstegi_Click(object sender, EventArgs e)
         {
-            if (ParaYeterliMi()) //Alicinin parasi yeterli ise alis istegi kabul edilir.
+            if (!BosMu())//hicnir alan bos degilse alisistegi sisteme kayit edilir
             {
-                AliciIstekTbl alisIstek = new AliciIstekTbl
-                {
-                    //Formdan alinacak urunle ilgili bilgiler getirilir ve aktarilir.
-                    KullaniciId = KullaniciGirisIslemleriManager.g_girisId,
-                    IstenilenUrun = alinacakUrun,
-                    IstekMiktari = miktar,
-                    IstekTarihi = Convert.ToDateTime(DateTime.Now.ToLongDateString()),
-                    IstekFiyati = fiyat
-                };
-                veriTabani.AliciIstekTbl.Add(alisIstek); //Veritabaninda bulunan AliciIstekTbl'a alis istegi eklenir.
-                veriTabani.SaveChanges(); ////Degisiklikler kayıt edilir.
-                MessageBox.Show("Alış İsteğiniz Alınmıştır");
-                otomatikSatis.IslemleriGerceklestir(alinacakUrun);////Alis istegi kayıt edildikten sonra otomatik satis islemleri için fonksiyon cagrilir
+                AlisIslemleriManager alisIslemleri = new AlisIslemleriManager();
+                alisIslemleri.AlisIstegiGonder(cmbAlınacakUrun.Text, Convert.ToInt32(txtAlisMiktari.Text), Convert.ToDecimal(txtAlisFiyati.Text));
+            }
+        }
+        private Boolean BosMu()//hergangi bir alanin bos olup olmadigini kontrol ediyoruz
+        {
+            if (txtAlisMiktari.Text == "" || cmbAlınacakUrun.SelectedItem == null || txtAlisFiyati.Text == "")
+            {
+                MessageBox.Show("Hiçbir Alan Boş Geçilemez!");
+                return true;
             }
             else
             {
-                //Hesapta para yoksa kullaniciya uyari mesaji gosterilir.
-                MessageBox.Show("Hesabınızda Para Bulumamaktadır!");
+                return false;
             }
         }
-        private Boolean ParaYeterliMi() //Kullanicinin hesabindaki paranin 0'dan buyuk oldugunu kontrol eder.
+
+        private void txtAlisMiktari_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //Giris yapan kullanicinin Id'si ile kullanici tablosundaki kullanici Id'si eslesen veri listeye eklenir.
-            var kullanici = from gecici in veriTabani.KullaniciTbl where gecici.KullaniciId == KullaniciGirisIslemleriManager.g_girisId select gecici;
-            foreach (var kullaniciBilgileri in kullanici)
-            {
-                if (kullaniciBilgileri.HesaptakiTL > 0) //Hesaptaki para 0'dan buyuk ise alis izni verilir.
-                {
-                    return true;
-                }
-            }
-            return false; ////Hesaptaki para 0'dan buyuk degilse alis izni verilmez.
+            e.Handled = !char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar);//sadece sayi ve kontrol
         }
 
         private void formuKucult_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        }
 
+        }
         private void formuKapat_Click(object sender, EventArgs e)
         {
             this.Close();
+
         }
+
     }
 }

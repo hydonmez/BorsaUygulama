@@ -29,6 +29,7 @@ namespace Borsa
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RaporFormu));
             this.dtpBitisTarihi = new System.Windows.Forms.DateTimePicker();
             this.dtpBaslangicTarihi = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,7 +46,7 @@ namespace Borsa
             // 
             // dtpBitisTarihi
             // 
-            this.dtpBitisTarihi.Location = new System.Drawing.Point(168, 47);
+            this.dtpBitisTarihi.Location = new System.Drawing.Point(166, 46);
             this.dtpBitisTarihi.Name = "dtpBitisTarihi";
             this.dtpBitisTarihi.Size = new System.Drawing.Size(253, 27);
             this.dtpBitisTarihi.TabIndex = 83;
@@ -53,7 +54,7 @@ namespace Borsa
             // dtpBaslangicTarihi
             // 
             this.dtpBaslangicTarihi.CustomFormat = "yyyy-MM-dd";
-            this.dtpBaslangicTarihi.Location = new System.Drawing.Point(168, 14);
+            this.dtpBaslangicTarihi.Location = new System.Drawing.Point(166, 13);
             this.dtpBaslangicTarihi.Name = "dtpBaslangicTarihi";
             this.dtpBaslangicTarihi.Size = new System.Drawing.Size(253, 27);
             this.dtpBaslangicTarihi.TabIndex = 82;
@@ -63,7 +64,7 @@ namespace Borsa
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(241)))), ((int)(((byte)(254)))));
-            this.label3.Location = new System.Drawing.Point(14, 49);
+            this.label3.Location = new System.Drawing.Point(12, 48);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(109, 19);
             this.label3.TabIndex = 81;
@@ -74,7 +75,7 @@ namespace Borsa
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(241)))), ((int)(((byte)(254)))));
-            this.label2.Location = new System.Drawing.Point(14, 22);
+            this.label2.Location = new System.Drawing.Point(12, 21);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(145, 19);
             this.label2.TabIndex = 80;
@@ -87,7 +88,7 @@ namespace Borsa
             this.btnRaporAl.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRaporAl.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnRaporAl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(241)))), ((int)(((byte)(254)))));
-            this.btnRaporAl.Location = new System.Drawing.Point(168, 80);
+            this.btnRaporAl.Location = new System.Drawing.Point(166, 79);
             this.btnRaporAl.Name = "btnRaporAl";
             this.btnRaporAl.Size = new System.Drawing.Size(249, 35);
             this.btnRaporAl.TabIndex = 11;
@@ -107,7 +108,7 @@ namespace Borsa
             this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(241)))), ((int)(((byte)(254)))));
             this.panel1.Location = new System.Drawing.Point(0, 44);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(460, 165);
+            this.panel1.Size = new System.Drawing.Size(460, 138);
             this.panel1.TabIndex = 79;
             // 
             // panel3
@@ -162,10 +163,11 @@ namespace Borsa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(459, 209);
+            this.ClientSize = new System.Drawing.Size(457, 183);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RaporFormu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";

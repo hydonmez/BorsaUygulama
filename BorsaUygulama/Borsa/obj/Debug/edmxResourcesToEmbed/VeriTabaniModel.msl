@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="VeriTabaniModelStoreContainer" CdmEntityContainer="VeriTabaniEntities">
+    <EntitySetMapping Name="AdminTbl">
+      <EntityTypeMapping TypeName="VeriTabaniModel.AdminTbl">
+        <MappingFragment StoreEntitySet="AdminTbl">
+          <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+          <ScalarProperty Name="AdmiKullaniciAdi" ColumnName="AdmiKullaniciAdi" />
+          <ScalarProperty Name="AdminAd" ColumnName="AdminAd" />
+          <ScalarProperty Name="AdminSoyad" ColumnName="AdminSoyad" />
+          <ScalarProperty Name="AdminSifre" ColumnName="AdminSifre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AliciIstekTbl">
+      <EntityTypeMapping TypeName="VeriTabaniModel.AliciIstekTbl">
+        <MappingFragment StoreEntitySet="AliciIstekTbl">
+          <ScalarProperty Name="AliciIstekId" ColumnName="AliciIstekId" />
+          <ScalarProperty Name="KullaniciId" ColumnName="KullaniciId" />
+          <ScalarProperty Name="IstenilenUrun" ColumnName="IstenilenUrun" />
+          <ScalarProperty Name="IstekMiktari" ColumnName="IstekMiktari" />
+          <ScalarProperty Name="IstekTarihi" ColumnName="IstekTarihi" />
+          <ScalarProperty Name="IstekFiyati" ColumnName="IstekFiyati" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AliciLog">
+      <EntityTypeMapping TypeName="VeriTabaniModel.AliciLog">
+        <MappingFragment StoreEntitySet="AliciLog">
+          <ScalarProperty Name="İslemId" ColumnName="İslemId" />
+          <ScalarProperty Name="KullaniciId" ColumnName="KullaniciId" />
+          <ScalarProperty Name="AlınanUrun" ColumnName="AlınanUrun" />
+          <ScalarProperty Name="AlisMiktari" ColumnName="AlisMiktari" />
+          <ScalarProperty Name="AlisFiyati" ColumnName="AlisFiyati" />
+          <ScalarProperty Name="AlisTarihi" ColumnName="AlisTarihi" />
+          <ScalarProperty Name="AlistakiVergi" ColumnName="AlistakiVergi" />
+          <ScalarProperty Name="ToplamHarcama" ColumnName="ToplamHarcama" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KullaniciTbl">
+      <EntityTypeMapping TypeName="VeriTabaniModel.KullaniciTbl">
+        <MappingFragment StoreEntitySet="KullaniciTbl">
+          <ScalarProperty Name="KullaniciId" ColumnName="KullaniciId" />
+          <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
+          <ScalarProperty Name="KullaniciAd" ColumnName="KullaniciAd" />
+          <ScalarProperty Name="KullaniciSoyad" ColumnName="KullaniciSoyad" />
+          <ScalarProperty Name="KullaniciTc" ColumnName="KullaniciTc" />
+          <ScalarProperty Name="KullaniciSifre" ColumnName="KullaniciSifre" />
+          <ScalarProperty Name="KullaniciTelefon" ColumnName="KullaniciTelefon" />
+          <ScalarProperty Name="KullaniciMail" ColumnName="KullaniciMail" />
+          <ScalarProperty Name="KullaniciAdres" ColumnName="KullaniciAdres" />
+          <ScalarProperty Name="HesaptakiTL" ColumnName="HesaptakiTL" />
+          <ScalarProperty Name="HesaptakiBugday" ColumnName="HesaptakiBugday" />
+          <ScalarProperty Name="HesaptakiYulaf" ColumnName="HesaptakiYulaf" />
+          <ScalarProperty Name="HesaptakiPetrol" ColumnName="HesaptakiPetrol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OnayTbl">
+      <EntityTypeMapping TypeName="VeriTabaniModel.OnayTbl">
+        <MappingFragment StoreEntitySet="OnayTbl">
+          <ScalarProperty Name="OnayId" ColumnName="OnayId" />
+          <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+          <ScalarProperty Name="OnaylanacakNesne" ColumnName="OnaylanacakNesne" />
+          <ScalarProperty Name="Miktar" ColumnName="Miktar" />
+          <ScalarProperty Name="OnayDurumu" ColumnName="OnayDurumu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SatisLog">
+      <EntityTypeMapping TypeName="VeriTabaniModel.SatisLog">
+        <MappingFragment StoreEntitySet="SatisLog">
+          <ScalarProperty Name="İslemId" ColumnName="İslemId" />
+          <ScalarProperty Name="KullaniciId" ColumnName="KullaniciId" />
+          <ScalarProperty Name="SatilanUrun" ColumnName="SatilanUrun" />
+          <ScalarProperty Name="SatisMiktari" ColumnName="SatisMiktari" />
+          <ScalarProperty Name="SatisFiyati" ColumnName="SatisFiyati" />
+          <ScalarProperty Name="SatisTarihi" ColumnName="SatisTarihi" />
+          <ScalarProperty Name="ToplamKazanc" ColumnName="ToplamKazanc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SatistakiUrunTbl">
+      <EntityTypeMapping TypeName="VeriTabaniModel.SatistakiUrunTbl">
+        <MappingFragment StoreEntitySet="SatistakiUrunTbl">
+          <ScalarProperty Name="SatisId" ColumnName="SatisId" />
+          <ScalarProperty Name="KullaniciId" ColumnName="KullaniciId" />
+          <ScalarProperty Name="SatistakiNesne" ColumnName="SatistakiNesne" />
+          <ScalarProperty Name="SatistakiMiktari" ColumnName="SatistakiMiktari" />
+          <ScalarProperty Name="SatistakiFiyati" ColumnName="SatistakiFiyati" />
+          <ScalarProperty Name="SatisIstekTarihi" ColumnName="SatisIstekTarihi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SirketTbl">
+      <EntityTypeMapping TypeName="VeriTabaniModel.SirketTbl">
+        <MappingFragment StoreEntitySet="SirketTbl">
+          <ScalarProperty Name="SirketId" ColumnName="SirketId" />
+          <ScalarProperty Name="SirketKazanc" ColumnName="SirketKazanc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

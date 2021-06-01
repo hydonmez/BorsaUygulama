@@ -11,7 +11,7 @@ namespace Borsa
     {
         VeriTabaniEntities veriTabani = new VeriTabaniEntities();
         OtomatikSatisGerceklestirmeManager otomatikSatis = new OtomatikSatisGerceklestirmeManager();
-        public void AlisIstegiGonder(string alinacakUrun,int miktar) //Parametre olarak alinacak ürünle ilgili bilgiler alinir
+        public void AlisIstegiGonder(string alinacakUrun,int miktar, decimal v) //Parametre olarak alinacak ürünle ilgili bilgiler alinir
         {
             if (ParaYeterliMi()) //Alicinin parasi yeterli ise alis istegi kabul edilir.
             {

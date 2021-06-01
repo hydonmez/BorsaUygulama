@@ -57,13 +57,13 @@
   <ItemGroup>
     <Compile Include="AdminGirisIslemleriManager.cs" />
     <Compile Include="AdminTbl.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>VeriTabaniModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AliciIstekTbl.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>VeriTabaniModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AliciLog.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>VeriTabaniModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AlisIslemleriForm.cs">
       <SubType>Form</SubType>
@@ -78,11 +78,11 @@
     <Compile Include="BilgiGirisEkrani.Designer.cs">
       <DependentUpon>BilgiGirisEkrani.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
+    <Compile Include="KullaniciTbl.cs">
+      <DependentUpon>VeriTabaniModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="OnayTbl.cs">
+      <DependentUpon>VeriTabaniModel.tt</DependentUpon>
     </Compile>
     <Compile Include="RaporFormu.cs">
       <SubType>Form</SubType>
@@ -110,25 +110,7 @@
       <DependentUpon>KullaniciIslemleriMenuForm.cs</DependentUpon>
     </Compile>
     <Compile Include="KullaniciKayitOlmaIslemleriManager.cs" />
-    <Compile Include="KullaniciTbl.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="KurHesapla.cs" />
-    <Compile Include="Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Compile>
     <Compile Include="OnayForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,9 +118,6 @@
       <DependentUpon>OnayForm.cs</DependentUpon>
     </Compile>
     <Compile Include="OnayIslemleriManager.cs" />
-    <Compile Include="OnayTbl.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="OtomatikSatisGerceklestirmeManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -151,22 +130,34 @@
     </Compile>
     <Compile Include="SatisIslemleriManager.cs" />
     <Compile Include="SatisLog.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>VeriTabaniModel.tt</DependentUpon>
     </Compile>
     <Compile Include="SatistakiUrunTbl.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>VeriTabaniModel.tt</DependentUpon>
     </Compile>
     <Compile Include="SirketTbl.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>VeriTabaniModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VeriTabaniModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VeriTabaniModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VeriTabaniModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VeriTabaniModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VeriTabaniModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VeriTabaniModel.edmx</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AlisIslemleriForm.resx">
       <DependentUpon>AlisIslemleriForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BilgiGirisEkrani.resx">
       <DependentUpon>BilgiGirisEkrani.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RaporFormu.resx">
       <DependentUpon>RaporFormu.cs</DependentUpon>
@@ -195,14 +186,7 @@
     <EmbeddedResource Include="SatisIslemleriFormu.resx">
       <DependentUpon>SatisIslemleriFormu.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <None Include="App.Config" />
-    <None Include="Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -213,21 +197,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EntityDeploy Include="VeriTabaniModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>VeriTabaniModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="VeriTabaniModel.edmx.diagram">
+      <DependentUpon>VeriTabaniModel.edmx</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="Microsoft.Office.Core">
@@ -266,6 +245,18 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="VeriTabaniModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>VeriTabaniModel.edmx</DependentUpon>
+      <LastGenOutput>VeriTabaniModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="VeriTabaniModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>VeriTabaniModel.edmx</DependentUpon>
+      <LastGenOutput>VeriTabaniModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

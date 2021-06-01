@@ -42,4 +42,3 @@ C:\Users\hydon\Desktop\Yazılım Yapımı Proje\BorsaUygulama\BorsaUygulama\Bors
 C:\Users\hydon\Desktop\Yazılım Yapımı Proje\BorsaUygulama\BorsaUygulama\Borsa\obj\Debug\Borsa.pdb
 C:\Users\hydon\Desktop\Yazılım Yapımı Proje\BorsaUygulama\BorsaUygulama\Borsa\obj\Debug\Borsa.csproj.ResolveComReference.cache
 C:\Users\hydon\Desktop\Yazılım Yapımı Proje\BorsaUygulama\BorsaUygulama\Borsa\obj\Debug\Borsa.RaporFormu.resources
-C:\Users\hydon\Desktop\Yazılım Yapımı Proje\BorsaUygulama\BorsaUygulama\Borsa\obj\Debug\Borsa.Form1.resources

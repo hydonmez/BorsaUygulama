@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VeriTabaniModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AdminTbl">
+    <Key>
+      <PropertyRef Name="AdminId" />
+    </Key>
+    <Property Name="AdminId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AdmiKullaniciAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AdminAd" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AdminSoyad" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AdminSifre" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AliciIstekTbl">
+    <Key>
+      <PropertyRef Name="AliciIstekId" />
+    </Key>
+    <Property Name="AliciIstekId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KullaniciId" Type="int" Nullable="false" />
+    <Property Name="IstenilenUrun" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IstekMiktari" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IstekTarihi" Type="date" Nullable="false" />
+    <Property Name="IstekFiyati" Type="money" />
+  </EntityType>
+  <EntityType Name="AliciLog">
+    <Key>
+      <PropertyRef Name="İslemId" />
+    </Key>
+    <Property Name="İslemId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KullaniciId" Type="int" Nullable="false" />
+    <Property Name="AlınanUrun" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AlisMiktari" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="AlisFiyati" Type="money" Nullable="false" />
+    <Property Name="AlisTarihi" Type="date" Nullable="false" />
+    <Property Name="AlistakiVergi" Type="money" Nullable="false" />
+    <Property Name="ToplamHarcama" Type="money" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KullaniciTbl">
+    <Key>
+      <PropertyRef Name="KullaniciId" />
+    </Key>
+    <Property Name="KullaniciId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KullaniciAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="KullaniciAd" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="KullaniciSoyad" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="KullaniciTc" Type="nchar" MaxLength="11" Nullable="false" />
+    <Property Name="KullaniciSifre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="KullaniciTelefon" Type="nchar" MaxLength="11" Nullable="false" />
+    <Property Name="KullaniciMail" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="KullaniciAdres" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="HesaptakiTL" Type="money" Nullable="false" />
+    <Property Name="HesaptakiBugday" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="HesaptakiYulaf" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="HesaptakiPetrol" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OnayTbl">
+    <Key>
+      <PropertyRef Name="OnayId" />
+    </Key>
+    <Property Name="OnayId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KullaniciID" Type="int" Nullable="false" />
+    <Property Name="OnaylanacakNesne" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Miktar" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="OnayDurumu" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SatisLog">
+    <Key>
+      <PropertyRef Name="İslemId" />
+    </Key>
+    <Property Name="İslemId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KullaniciId" Type="int" Nullable="false" />
+    <Property Name="SatilanUrun" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SatisMiktari" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="SatisFiyati" Type="money" Nullable="false" />
+    <Property Name="SatisTarihi" Type="date" Nullable="false" />
+    <Property Name="ToplamKazanc" Type="money" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SatistakiUrunTbl">
+    <Key>
+      <PropertyRef Name="SatisId" />
+    </Key>
+    <Property Name="SatisId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KullaniciId" Type="int" Nullable="false" />
+    <Property Name="SatistakiNesne" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SatistakiMiktari" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="SatistakiFiyati" Type="money" Nullable="false" />
+    <Property Name="SatisIstekTarihi" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SirketTbl">
+    <Key>
+      <PropertyRef Name="SirketId" />
+    </Key>
+    <Property Name="SirketId" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="SirketKazanc" Type="money" />
+  </EntityType>
+  <EntityContainer Name="VeriTabaniModelStoreContainer">
+    <EntitySet Name="AdminTbl" EntityType="Self.AdminTbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AliciIstekTbl" EntityType="Self.AliciIstekTbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AliciLog" EntityType="Self.AliciLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KullaniciTbl" EntityType="Self.KullaniciTbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OnayTbl" EntityType="Self.OnayTbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SatisLog" EntityType="Self.SatisLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SatistakiUrunTbl" EntityType="Self.SatistakiUrunTbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SirketTbl" EntityType="Self.SirketTbl" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
