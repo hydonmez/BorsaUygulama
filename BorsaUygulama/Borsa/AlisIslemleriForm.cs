@@ -16,43 +16,54 @@ namespace Borsa
         {
             InitializeComponent();
         }
-
-        private void btnAlisIstegi_Click(object sender, EventArgs e)
+        VeriTabaniEntities veriTabani = new VeriTabaniEntities();
+        OtomatikSatisGerceklestirmeManager otomatikSatis = new OtomatikSatisGerceklestirmeManager();
+        public void AlisIstegiGonder(string alinacakUrun, int miktar, decimal fiyat) //Parametre olarak alinacak ürünle ilgili bilgiler alinir
         {
-            if (!BosMu())//hicnir alan bos degilse alisistegi sisteme kayit edilir
+            if (ParaYeterliMi()) //Alicinin parasi yeterli ise alis istegi kabul edilir.
             {
-                AlisIslemleriManager alisIslemleri = new AlisIslemleriManager();
-                alisIslemleri.AlisIstegiGonder(cmbAlınacakUrun.Text, Convert.ToInt32(txtAlisMiktari.Text));
-            }
-        }
-        private Boolean BosMu()//hergangi bir alanin bos olup olmadigini kontrol ediyoruz
-        {
-            if (txtAlisMiktari.Text == "" || cmbAlınacakUrun.SelectedItem == null)
-            {
-                MessageBox.Show("Hiçbir Alan Boş Geçilemez!");
-                return true;
+                AliciIstekTbl alisIstek = new AliciIstekTbl
+                {
+                    //Formdan alinacak urunle ilgili bilgiler getirilir ve aktarilir.
+                    KullaniciId = KullaniciGirisIslemleriManager.g_girisId,
+                    IstenilenUrun = alinacakUrun,
+                    IstekMiktari = miktar,
+                    IstekTarihi = Convert.ToDateTime(DateTime.Now.ToLongDateString()),
+                    IstekFiyati = fiyat
+                };
+                veriTabani.AliciIstekTbl.Add(alisIstek); //Veritabaninda bulunan AliciIstekTbl'a alis istegi eklenir.
+                veriTabani.SaveChanges(); ////Degisiklikler kayıt edilir.
+                MessageBox.Show("Alış İsteğiniz Alınmıştır");
+                otomatikSatis.IslemleriGerceklestir(alinacakUrun);////Alis istegi kayıt edildikten sonra otomatik satis islemleri için fonksiyon cagrilir
             }
             else
             {
-                return false;
+                //Hesapta para yoksa kullaniciya uyari mesaji gosterilir.
+                MessageBox.Show("Hesabınızda Para Bulumamaktadır!");
             }
         }
-
-        private void txtAlisMiktari_KeyPress(object sender, KeyPressEventArgs e)
+        private Boolean ParaYeterliMi() //Kullanicinin hesabindaki paranin 0'dan buyuk oldugunu kontrol eder.
         {
-            e.Handled = !char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar);//sadece sayi ve kontrol
+            //Giris yapan kullanicinin Id'si ile kullanici tablosundaki kullanici Id'si eslesen veri listeye eklenir.
+            var kullanici = from gecici in veriTabani.KullaniciTbl where gecici.KullaniciId == KullaniciGirisIslemleriManager.g_girisId select gecici;
+            foreach (var kullaniciBilgileri in kullanici)
+            {
+                if (kullaniciBilgileri.HesaptakiTL > 0) //Hesaptaki para 0'dan buyuk ise alis izni verilir.
+                {
+                    return true;
+                }
+            }
+            return false; ////Hesaptaki para 0'dan buyuk degilse alis izni verilmez.
         }
-
 
         private void formuKucult_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-
         }
+
         private void formuKapat_Click(object sender, EventArgs e)
         {
             this.Close();
-
         }
     }
 }

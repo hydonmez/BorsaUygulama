@@ -16,11 +16,19 @@ namespace Borsa
         {
             InitializeComponent();
         }
+       
+           
+
+        
+           
+        
+
         private void btnSatis_Click(object sender, EventArgs e)
         {
             //butona tiklandiginda satis islemleri formunu acar
             SatisIslemleriFormu satisIslemi = new SatisIslemleriFormu();
             satisIslemi.Show();
+
         }
 
         private void btnAlis_Click(object sender, EventArgs e)
@@ -29,12 +37,23 @@ namespace Borsa
             AlisIslemleriForm alisIslemleri = new AlisIslemleriForm();
             alisIslemleri.Show();
         }
+
         private void btnNesneYukleme_Click(object sender, EventArgs e)
         {
+
+
             //butona tiklandiginda bilgigiris islemleri formunu acar
             BilgiGirisEkrani bilgiGiris = new BilgiGirisEkrani();
             bilgiGiris.Show();
+      
         }
+
+        private void btnRapor_Click(object sender, EventArgs e)
+        {
+            RaporFormu raporislemleri = new RaporFormu();
+            raporislemleri.Show();
+        }
+
         private void formuKucult_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;

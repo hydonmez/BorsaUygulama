@@ -35,18 +35,21 @@ namespace Borsa
                 foreach (var saticiIstekleri in SaticiIstekleriniBul(alisIstekleri.IstenilenUrun))//listedeki ilk saticidan alicinin istegi gercekleştirilmek üzere bir döngüye girilir
                                                                                                   //eger ilk saticida urun bittiyse ve kullanicinin almak istedigi urun miktarina ulasilmadiysa
                 {
-                    int alicininAldigiUrun = 0;
+                    int alicininAldigiUrunmiktari = 0;
                     decimal saticininKazandigiPara = 0;
-                    while (saticiIstekleri.SatistakiMiktari != 0 && alisIstekleri.IstekMiktari != 0 && Convert.ToDecimal(alicininParasi) >= Convert.ToDecimal(saticiIstekleri.SatistakiFiyati))
+                    decimal sirketinKazandigiPara = 0;
+                    decimal saticininBirimUrunFiyatiKomisyonlu = Convert.ToDecimal(saticiIstekleri.SatistakiFiyati) + ((Convert.ToDecimal(saticiIstekleri.SatistakiFiyati) * 1) / 100);
+                    while (saticiIstekleri.SatistakiMiktari != 0 && alisIstekleri.IstekMiktari != 0 && Convert.ToDecimal(alicininParasi) >= saticininBirimUrunFiyatiKomisyonlu && alisIstekleri.IstekFiyati >= saticiIstekleri.SatistakiFiyati)
                     {
                         /* saticinin satistablosundaki ilgili urunun miktari 0 olana denk veya 
                          alicinin ilgili urunden istek miktari 0 olana kadar veya alicin hesabındaki para saticin bir birim ürün fiyatından az oluncaya kadar döngü döner*/
                         //her döngüye girildiginde sartlar saglandigi icin;
-                        alicininAldigiUrun++; //alicinin aldigi urun 1 adet artırılır 
+                        alicininAldigiUrunmiktari++; //alicinin aldigi urun 1 adet artırılır 
                         saticininKazandigiPara += saticiIstekleri.SatistakiFiyati;//saticinin kazandigipara bir birim fiyati kadar artırlır
                         saticiIstekleri.SatistakiMiktari -= 1; //saticinin sattigi urun 1 adet azaltılır
                         alisIstekleri.IstekMiktari -= 1;//alicinin almak istedigi urun miktari bir adet azaltılır 
-                        alicininParasi -= Convert.ToDecimal(saticiIstekleri.SatistakiFiyati);//alicinin parası bir birim urun fiyati kadar azaltılır
+                        alicininParasi -= saticininBirimUrunFiyatiKomisyonlu;//alicinin parası bir birim urun fiyati kadar azaltılır
+                        sirketinKazandigiPara += ((Convert.ToDecimal(saticiIstekleri.SatistakiFiyati) * 1) / 100);
                     }
                     //Dongunun neden kirildigi tespit edilerek gerekli islemler yapilir.
                     if (saticiIstekleri.SatistakiMiktari == 0) //Saticinin satis istegindeki tüm ürünleri satıldıysa ilgili satis istegi tablodan silinir
@@ -71,21 +74,53 @@ namespace Borsa
                     {
                         string deger = "Hesaptaki" + islemYapilacakUrun;
                         var x = Convert.ToDecimal(saticiHesabi.GetType().GetProperty(deger).GetValue(saticiHesabi, null));//Saticinin hesabindan sattigi urunun bilgisi getirilir
-                        x -= alicininAldigiUrun; //hesaptaki mevcut urunden alicinin aldigi urun cikarilir 
+                        x -= alicininAldigiUrunmiktari; //hesaptaki mevcut urunden alicinin aldigi urun cikarilir 
                         saticiHesabi.GetType().GetProperty(deger).SetValue(saticiHesabi, x);//saticinin ilgili urunler ilgili yeni stogu kullanici hesabında güncellenir
                         saticiHesabi.HesaptakiTL += saticininKazandigiPara;//satistan kazandigi para hesabına eklenir
                     }
 
                     foreach (var item2 in HesabiGetir(alisIstekleri.KullaniciId))//alicinin hesabı getirilir ve hesabinda gerekli alis veris islmeleri gerceklestirilir
                     {
-                        item2.HesaptakiTL -= saticininKazandigiPara; //aliciya verdiği para hesabından çikarilir ve mevcut bakiyesi güncellenir
+                        item2.HesaptakiTL -= (saticininKazandigiPara + sirketinKazandigiPara); //aliciya verdiği para hesabından çikarilir ve mevcut bakiyesi güncellenir
                         string deger = "Hesaptaki" + islemYapilacakUrun;
                         var x = Convert.ToDecimal(item2.GetType().GetProperty(deger).GetValue(item2, null));//alinan urunle ilgili alicinin hesabindaki urun miktari getirilir
-                        x += alicininAldigiUrun;//gelen urun miktarına yeni alinan urun miktari eklenir
+                        x += alicininAldigiUrunmiktari;//gelen urun miktarına yeni alinan urun miktari eklenir
                         item2.GetType().GetProperty(deger).SetValue(item2, x);//kullanicinin  hesabinda ilgili urunun miktari guncellenir                                                      
                     }
-                    veriTabani.SaveChanges();//Degisiklikler kaydedilir.
 
+
+
+                    if (alicininAldigiUrunmiktari > 0)//ürün satisi gerceklestiyse loglama islemi gerceklesir
+                    {
+                        //alici log bilgileri 
+                        AliciLog aliciLog = new AliciLog();  //Yenibir alici log bilgisi olustur                     
+                        aliciLog.KullaniciId = alisIstekleri.KullaniciId;
+                        aliciLog.AlisFiyati = saticiIstekleri.SatistakiFiyati; //urun fiyati saticinin sattigi fiyattir 
+                        aliciLog.AlisMiktari = alicininAldigiUrunmiktari;//alicinin aldigi urunun toplam adeti
+                        aliciLog.AlistakiVergi = sirketinKazandigiPara;//alistakitoplam vergi sirketin aldigi toplam paradır
+                        aliciLog.AlınanUrun = saticiIstekleri.SatistakiNesne;//alinan urun saticinin sattıgı urundur
+                        aliciLog.ToplamHarcama = sirketinKazandigiPara + saticininKazandigiPara;//toplam harcama şirketin kestiği ile saticinin kazandiği para kadardır
+                        aliciLog.AlisTarihi = DateTime.Now;
+                        veriTabani.AliciLog.Add(aliciLog); //alici log bilgisi kayit edilir
+
+                        ///satici log bilgileri 
+                        SatisLog saticilogbilgiler = new SatisLog();
+                        saticilogbilgiler.KullaniciId = saticiIstekleri.KullaniciId;
+                        saticilogbilgiler.SatisFiyati = saticiIstekleri.SatistakiFiyati;
+                        saticilogbilgiler.SatisMiktari = alicininAldigiUrunmiktari;
+                        saticilogbilgiler.ToplamKazanc = saticininKazandigiPara;
+                        saticilogbilgiler.SatilanUrun = saticiIstekleri.SatistakiNesne;
+                        saticilogbilgiler.SatisTarihi = DateTime.Now;
+                        veriTabani.SatisLog.Add(saticilogbilgiler);
+                    }
+
+
+                    var sirket = from sirketgecici in veriTabani.SirketTbl select sirketgecici; //sirketin hesabina para gecer
+                    foreach (var item in sirket)
+                    {
+                        item.SirketKazanc += Convert.ToDecimal(sirketinKazandigiPara);//satistan sirketin hesabına düsen pay gecilir
+                    }
+                    veriTabani.SaveChanges();// tüm Degisiklikler kaydedilir.
                 }
             }
         }

@@ -57,3 +57,5 @@ BorsaUygulama/Borsa/VeriTabani.Designer.cs
 BorsaUygulama/Borsa/VeriTabani.edmx
 BorsaUygulama/Borsa/VeriTabani.edmx.diagram
 BorsaUygulama/Borsa/VeriTabani.tt
+BorsaUygulama/Borsa/SirketTbl.cs
+BorsaUygulama/Borsa/SatisLog.cs
