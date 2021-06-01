@@ -11,7 +11,7 @@ namespace Borsa
     {
         VeriTabaniEntities veriTabani = new VeriTabaniEntities();
         OtomatikSatisGerceklestirmeManager otomatikSatis = new OtomatikSatisGerceklestirmeManager();
-        public void AlisIstegiGonder(string alinacakUrun,int miktar, decimal v) //Parametre olarak alinacak ürünle ilgili bilgiler alinir
+        public void AlisIstegiGonder(string alinacakUrun,int miktar, decimal istekfiyati) //Parametre olarak alinacak ürünle ilgili bilgiler alinir
         {
             if (ParaYeterliMi()) //Alicinin parasi yeterli ise alis istegi kabul edilir.
             {
@@ -21,6 +21,7 @@ namespace Borsa
                     KullaniciId = KullaniciGirisIslemleriManager.g_girisId,
                     IstenilenUrun = alinacakUrun,
                     IstekMiktari = miktar,
+                    IstekFiyati=istekfiyati,
                     IstekTarihi = Convert.ToDateTime(DateTime.Now.ToLongDateString())
                 };
                 veriTabani.AliciIstekTbl.Add(alisIstek); //Veritabaninda bulunan AliciIstekTbl'a alis istegi eklenir.

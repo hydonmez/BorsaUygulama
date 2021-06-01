@@ -107,6 +107,7 @@ namespace Borsa
             "TL",
             "Euro",
             "Dolar",
+            "Pound",
             "Bugday",
             "Petrol",
             "Yulaf"});
