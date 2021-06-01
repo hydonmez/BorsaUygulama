@@ -14,9 +14,15 @@ namespace Borsa
             string bugun = "http://www.tcmb.gov.tr/kurlar/today.xml";//sitenin adresini verdik 
             XmlDocument xmldoc = new XmlDocument(); //xmldocument kutuphanesinden bir dosya olusturduk
             xmldoc.Load(bugun);//xmldoc nesnesine merkez bankasinin bilgilerini yukledik
-            string usd = xmldoc.SelectSingleNode("Tarih_Date/Currency [@Kod='USD']/BanknoteBuying").InnerXml;//merkez bankası dolar alis kurunu alindi
-            string euro = xmldoc.SelectSingleNode("Tarih_Date/Currency [@Kod='EUR']/BanknoteBuying").InnerXml;//merkez bankası euro alis kuru alindi
-            string pound = xmldoc.SelectSingleNode("Tarih_Date/Currency [@Kod='GBP']/BanknoteBuying").InnerXml;//merkez bankası pound alis kuru alindi
+            
+            //merkez bankası dolar alis kurunu alindi
+            string usd = xmldoc.SelectSingleNode("Tarih_Date/Currency [@Kod='USD']/BanknoteBuying").InnerXml;
+            
+            //merkez bankası euro alis kuru alindi
+            string euro = xmldoc.SelectSingleNode("Tarih_Date/Currency [@Kod='EUR']/BanknoteBuying").InnerXml;
+            
+            //merkez bankası pound alis kuru alindi
+            string pound = xmldoc.SelectSingleNode("Tarih_Date/Currency [@Kod='GBP']/BanknoteBuying").InnerXml;
             
             if (paratipi == "Euro") //para tipi euro ise euro kur bilgisi gonderilir
             {

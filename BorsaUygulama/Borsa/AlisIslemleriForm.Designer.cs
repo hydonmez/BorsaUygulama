@@ -40,6 +40,8 @@ namespace Borsa
             this.formuKucult = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtAlisFiyati = new System.Windows.Forms.TextBox();
+            this.lblAlisFiyati = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -50,7 +52,7 @@ namespace Borsa
             this.btnAlisIstegi.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAlisIstegi.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnAlisIstegi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.btnAlisIstegi.Location = new System.Drawing.Point(197, 82);
+            this.btnAlisIstegi.Location = new System.Drawing.Point(197, 115);
             this.btnAlisIstegi.Name = "btnAlisIstegi";
             this.btnAlisIstegi.Size = new System.Drawing.Size(158, 46);
             this.btnAlisIstegi.TabIndex = 23;
@@ -158,6 +160,8 @@ namespace Borsa
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.panel1.Controls.Add(this.txtAlisFiyati);
+            this.panel1.Controls.Add(this.lblAlisFiyati);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.cmbAlınacakUrun);
             this.panel1.Controls.Add(this.btnAlisIstegi);
@@ -165,14 +169,35 @@ namespace Borsa
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(0, 40);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(393, 157);
+            this.panel1.Size = new System.Drawing.Size(393, 182);
             this.panel1.TabIndex = 25;
+            // 
+            // txtAlisFiyati
+            // 
+            this.txtAlisFiyati.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(122)))), ((int)(((byte)(137)))));
+            this.txtAlisFiyati.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtAlisFiyati.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.txtAlisFiyati.Location = new System.Drawing.Point(197, 82);
+            this.txtAlisFiyati.Name = "txtAlisFiyati";
+            this.txtAlisFiyati.Size = new System.Drawing.Size(158, 27);
+            this.txtAlisFiyati.TabIndex = 26;
+            // 
+            // lblAlisFiyati
+            // 
+            this.lblAlisFiyati.AutoSize = true;
+            this.lblAlisFiyati.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblAlisFiyati.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.lblAlisFiyati.Location = new System.Drawing.Point(3, 82);
+            this.lblAlisFiyati.Name = "lblAlisFiyati";
+            this.lblAlisFiyati.Size = new System.Drawing.Size(134, 19);
+            this.lblAlisFiyati.TabIndex = 27;
+            this.lblAlisFiyati.Text = "Alış Fiyati(TL): ";
             // 
             // AlisIslemleriForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(391, 196);
+            this.ClientSize = new System.Drawing.Size(394, 223);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -200,5 +225,7 @@ namespace Borsa
         private System.Windows.Forms.Label formuKucult;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox txtAlisFiyati;
+        private System.Windows.Forms.Label lblAlisFiyati;
     }
 }
