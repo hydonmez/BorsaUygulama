@@ -26,9 +26,7 @@ namespace Borsa
         private void formuKapat_Click(object sender, EventArgs e)
         {
             this.Close();
-
         }
-
         private void formuKucult_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;

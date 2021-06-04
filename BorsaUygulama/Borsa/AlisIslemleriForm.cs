@@ -19,10 +19,10 @@ namespace Borsa
 
         private void btnAlisIstegi_Click(object sender, EventArgs e)
         {
-            if (!BosMu())//hicnir alan bos degilse alisistegi sisteme kayit edilir
+            if (!BosMu())//hicbir alan bos degilse alisistegi sisteme kayit edilir
             {
                 AlisIslemleriManager alisIslemleri = new AlisIslemleriManager();
-                alisIslemleri.AlisIstegiGonder(cmbAlınacakUrun.Text, Convert.ToInt32(txtAlisMiktari.Text), Convert.ToDecimal(txtAlisFiyati.Text));
+                alisIslemleri.AlisIstegiGonder(cmbAlınacakUrun.Text, Convert.ToInt32(txtAlisMiktari.Text), Convert.ToDecimal(txtAlisFiyati.Text));//parametre olarak fiyet urun ve miktar gonderilir
             }
         }
         private Boolean BosMu()//hergangi bir alanin bos olup olmadigini kontrol ediyoruz

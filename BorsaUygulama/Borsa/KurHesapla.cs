@@ -16,25 +16,27 @@ namespace Borsa
             xmldoc.Load(bugun);//xmldoc nesnesine merkez bankasinin bilgilerini yukledik
             
             //merkez bankası dolar alis kurunu alindi
-            string usd = xmldoc.SelectSingleNode("Tarih_Date/Currency [@Kod='USD']/BanknoteBuying").InnerXml;
-            
+            string usd = xmldoc.SelectSingleNode("Tarih_Date/Currency [@Kod='USD']/BanknoteBuying").InnerXml.Replace('.', ',');//noktayı virgüle ceviriyoruz hesaplama yaparken binlik olarak algılıyor
+
             //merkez bankası euro alis kuru alindi
-            string euro = xmldoc.SelectSingleNode("Tarih_Date/Currency [@Kod='EUR']/BanknoteBuying").InnerXml;
-            
+            string euro = xmldoc.SelectSingleNode("Tarih_Date/Currency [@Kod='EUR']/BanknoteBuying").InnerXml.Replace('.', ',');
+
             //merkez bankası pound alis kuru alindi
-            string pound = xmldoc.SelectSingleNode("Tarih_Date/Currency [@Kod='GBP']/BanknoteBuying").InnerXml;
+            string pound = xmldoc.SelectSingleNode("Tarih_Date/Currency [@Kod='GBP']/BanknoteBuying").InnerXml.Replace('.',',');
+            
             
             if (paratipi == "Euro") //para tipi euro ise euro kur bilgisi gonderilir
             {
-                return Convert.ToDecimal(euro) / 10000;//10.434 geldigi icin veri mecburan 10,434 çevirmek için 10000'ne bölüyoruz
+                return Convert.ToDecimal(euro);
+                
             }
             else if (paratipi == "Dolar")
             {
-                return Convert.ToDecimal(usd) / 10000;
+                return Convert.ToDecimal(usd);
             }
             else if (paratipi == "Pound")
-            {
-                return Convert.ToDecimal(pound) / 10000;
+            {Console.WriteLine(pound);
+                return Convert.ToDecimal(pound) ;
             }
             else return 0;
         }

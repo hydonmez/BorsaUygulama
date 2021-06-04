@@ -17,12 +17,6 @@ namespace Borsa
             InitializeComponent();
         }
        
-           
-
-        
-           
-        
-
         private void btnSatis_Click(object sender, EventArgs e)
         {
             //butona tiklandiginda satis islemleri formunu acar
@@ -45,9 +39,9 @@ namespace Borsa
             //butona tiklandiginda bilgigiris islemleri formunu acar
             BilgiGirisEkrani bilgiGiris = new BilgiGirisEkrani();
             bilgiGiris.Show();
-      
-        }
 
+        }
+        
         private void btnRapor_Click(object sender, EventArgs e)
         {
             RaporFormu raporislemleri = new RaporFormu();
