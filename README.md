@@ -2,7 +2,7 @@
 
 ## Proje Ekip Üyeleri:
 
-* Tuba AKBAŞ                202803008
+* Tuba AKBAŞ                212802004
 * Hüseyin Yasin DÖNMEZ      202802003
 
 
